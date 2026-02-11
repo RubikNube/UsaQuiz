@@ -17,10 +17,20 @@
       </header>
 
       <section class="prompt">
-        <div class="stateName">Click: <span id="targetState">—</span></div>
+        <div class="stateName" id="promptLine">
+          Click: <span id="targetState">—</span>
+        </div>
         <div class="hint" id="hint">Pick the correct state on the map.</div>
         <div class="controls">
-          <label class="roundSelect" for="roundCount">
+          <label class="roundSelect" for="modeToggle">
+            Mode:
+            <select id="modeToggle">
+              <option value="quiz" selected>Quiz</option>
+              <option value="learn">Learn</option>
+            </select>
+          </label>
+
+          <label class="roundSelect" for="roundCount" data-quiz-only>
             Questions:
             <select id="roundCount">
               <option value="5">5</option>
@@ -30,9 +40,9 @@
               <option value="50">50</option>
             </select>
           </label>
-          <button id="startBtn">Start</button>
-          <button id="nextBtn" disabled>Next</button>
-          <button id="restartBtn" class="secondary" disabled>Restart</button>
+          <button id="startBtn" data-quiz-only>Start</button>
+          <button id="nextBtn" disabled data-quiz-only>Next</button>
+          <button id="restartBtn" class="secondary" disabled data-quiz-only>Restart</button>
         </div>
       </section>
 

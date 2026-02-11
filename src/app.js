@@ -63,12 +63,25 @@ const els = {
   round: document.getElementById("round"),
   totalRounds: document.getElementById("totalRounds"),
   roundCount: document.getElementById("roundCount"),
+  modeToggle: document.getElementById("modeToggle"),
   startBtn: document.getElementById("startBtn"),
   nextBtn: document.getElementById("nextBtn"),
   restartBtn: document.getElementById("restartBtn"),
   endScreen: document.getElementById("endScreen"),
   finalScore: document.getElementById("finalScore"),
+  promptLine: document.getElementById("promptLine"),
+  quizOnly: Array.from(document.querySelectorAll("[data-quiz-only]")),
 };
+
+function findStateByCode(code) {
+  return STATES.find((s) => s.code === code) ?? null;
+}
+
+function setQuizUIVisible(visible) {
+  els.quizOnly.forEach((el) => el.classList.toggle("hidden", !visible));
+}
+
+let mode = "quiz"; // "quiz" | "learn"
 
 let totalRounds = DEFAULT_TOTAL_ROUNDS;
 els.totalRounds.textContent = String(totalRounds);
@@ -100,7 +113,42 @@ function setHint(text, kind = "neutral") {
   else els.hint.style.color = "var(--muted)";
 }
 
+function setMode(nextMode) {
+  mode = nextMode === "learn" ? "learn" : "quiz";
+
+  // Reset state when switching modes
+  resetStateClasses();
+  inRound = false;
+  target = null;
+  remaining = [];
+
+  if (mode === "learn") {
+    setQuizUIVisible(false);
+    els.endScreen.classList.add("hidden");
+    els.score.textContent = "0";
+    els.round.textContent = "—";
+    els.totalRounds.textContent = "—";
+    els.targetState.textContent = "Click a state";
+    setHint("Learn mode: click a state to see its name.");
+  } else {
+    setQuizUIVisible(true);
+    totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
+    if (!Number.isFinite(totalRounds) || totalRounds <= 0) {
+      totalRounds = DEFAULT_TOTAL_ROUNDS;
+    }
+    els.totalRounds.textContent = String(totalRounds);
+    els.round.textContent = "1";
+    els.targetState.textContent = "—";
+    setHint("Pick the correct state on the map.");
+    els.startBtn.disabled = false;
+    els.restartBtn.disabled = true;
+    els.nextBtn.disabled = true;
+  }
+}
+
 function startGame() {
+  if (mode !== "quiz") return;
+
   score = 0;
   round = 0;
   inRound = false;
@@ -134,6 +182,8 @@ function startGame() {
 }
 
 function nextRound() {
+  if (mode !== "quiz") return;
+
   resetStateClasses();
 
   if (round >= totalRounds || remaining.length === 0) {
@@ -152,6 +202,8 @@ function nextRound() {
 }
 
 function endGame() {
+  if (mode !== "quiz") return;
+
   inRound = false;
   target = null;
 
@@ -164,11 +216,19 @@ function endGame() {
   setHint("Game finished.", "neutral");
 }
 
-function handleMapClick(e) {
-  const el = e.target;
-  if (!(el instanceof SVGPathElement)) return;
-  if (!el.classList.contains("state")) return;
+function handleLearnClick(el) {
+  resetStateClasses();
 
+  const clickedCode = el.id;
+  const clicked = findStateByCode(clickedCode);
+  const clickedName = clicked ? clicked.name : clickedCode;
+
+  el.classList.add("correct");
+  els.targetState.textContent = clickedName;
+  setHint(`You clicked ${clickedName}.`, "neutral");
+}
+
+function handleQuizClick(el) {
   if (!inRound || !target) return;
 
   const clickedCode = el.id;
@@ -187,7 +247,7 @@ function handleMapClick(e) {
     const correctEl = els.map.querySelector(`#${CSS.escape(correctCode)}`);
     if (correctEl) correctEl.classList.add("correct");
 
-    const clicked = STATES.find((s) => s.code === clickedCode);
+    const clicked = findStateByCode(clickedCode);
     const clickedName = clicked ? clicked.name : clickedCode;
 
     setHint(`Wrong. That was ${clickedName}.`, "bad");
@@ -196,7 +256,20 @@ function handleMapClick(e) {
   els.nextBtn.disabled = false;
 }
 
+function handleMapClick(e) {
+  const el = e.target;
+  if (!(el instanceof SVGPathElement)) return;
+  if (!el.classList.contains("state")) return;
+
+  if (mode === "learn") handleLearnClick(el);
+  else handleQuizClick(el);
+}
+
 els.map.addEventListener("click", handleMapClick);
+
+els.modeToggle?.addEventListener("change", () => {
+  setMode(els.modeToggle.value);
+});
 
 els.startBtn.addEventListener("click", startGame);
 els.nextBtn.addEventListener("click", nextRound);
@@ -204,3 +277,6 @@ els.restartBtn.addEventListener("click", () => {
   els.startBtn.disabled = false;
   startGame();
 });
+
+// Initialize UI
+setMode(els.modeToggle?.value ?? "quiz");

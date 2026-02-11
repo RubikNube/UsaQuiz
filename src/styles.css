@@ -198,3 +198,7 @@ button:disabled {
 .hidden { display: none; }
 
 .muted { color: var(--muted); }
+
+[data-quiz-only].hidden {
+  display: none !important;
+}

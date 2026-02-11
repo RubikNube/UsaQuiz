@@ -57,6 +57,7 @@ const STATES = [
 
 const els = {
   map: document.getElementById("usMap"),
+  toast: document.getElementById("toast"),
   targetState: document.getElementById("targetState"),
   hint: document.getElementById("hint"),
   score: document.getElementById("score"),
@@ -79,6 +80,35 @@ function findStateByCode(code) {
 
 function setQuizUIVisible(visible) {
   els.quizOnly.forEach((el) => el.classList.toggle("hidden", !visible));
+}
+
+let toastTimer = null;
+
+function showToast(text) {
+  if (!els.toast) return;
+
+  if (toastTimer) {
+    window.clearTimeout(toastTimer);
+    toastTimer = null;
+  }
+
+  els.toast.textContent = text;
+  els.toast.classList.remove("hidden");
+
+  toastTimer = window.setTimeout(() => {
+    els.toast.classList.add("hidden");
+    toastTimer = null;
+  }, 3000);
+}
+
+function hideToast() {
+  if (!els.toast) return;
+
+  if (toastTimer) {
+    window.clearTimeout(toastTimer);
+    toastTimer = null;
+  }
+  els.toast.classList.add("hidden");
 }
 
 let mode = "quiz"; // "quiz" | "learn"
@@ -118,6 +148,7 @@ function setMode(nextMode) {
 
   // Reset state when switching modes
   resetStateClasses();
+  hideToast();
   inRound = false;
   target = null;
   remaining = [];
@@ -224,8 +255,13 @@ function handleLearnClick(el) {
   const clickedName = clicked ? clicked.name : clickedCode;
 
   el.classList.add("correct");
-  els.targetState.textContent = clickedName;
-  setHint(`You clicked ${clickedName}.`, "neutral");
+
+  // In learn mode the state name is shown as a transient notification.
+  showToast(clickedName);
+
+  // Keep the prompt area stable in fullscreen; avoid relying on it.
+  els.targetState.textContent = "Click a state";
+  setHint("Learn mode: click a state to see its name.");
 }
 
 function handleQuizClick(el) {

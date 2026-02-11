@@ -70,6 +70,31 @@ body {
   flex-wrap: wrap;
 }
 
+.toast {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  max-width: min(92vw, 720px);
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(17, 26, 46, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--text);
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.toast.hidden {
+  display: none;
+}
+
 .roundSelect {
   display: inline-flex;
   align-items: center;

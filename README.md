@@ -2,18 +2,26 @@
 
 This is a simple quiz game about the United States.
 
+https://rubiknube.github.io/UsaQuiz/
+
 ## Features
 
-* [ ] Find the state on a USA map
+* [x] Find the state on a USA map (Quiz + Learn mode)
 * [ ] Guess the state capital
 * [ ] Guess the state flag
 
 ## How to Play
 
-1. Choose a quiz type (map, capital, or flag).
-1.1. Map: You will be shown a blank map of the USA with a highlighted state. You
-need to click on the correct state.
-
+1. Open the game (link above).
+2. Select a mode:
+   - **Quiz**: press **Start**, then click the correct state on the map.
+     - Use **Questions** to choose how many rounds to play.
+     - Use **Auto next** to automatically advance after a **correct**
+       answer (on by default).
+     - If you answer **wrong**, the correct state is highlighted and you
+       must press **Next** to continue.
+   - **Learn**: click any state to see its name.
+3. Use **Restart** to start a new game.
 
 ## Resources
 

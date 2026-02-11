@@ -70,6 +70,7 @@ const els = {
   round: document.getElementById("round"),
   totalRounds: document.getElementById("totalRounds"),
   roundCount: document.getElementById("roundCount"),
+  autoNext: document.getElementById("autoNext"),
   modeToggle: document.getElementById("modeToggle"),
   startBtn: document.getElementById("startBtn"),
   nextBtn: document.getElementById("nextBtn"),
@@ -352,7 +353,9 @@ function handleQuizClick(el) {
   // Lock the round after a click.
   inRound = false;
 
-  if (clickedCode === correctCode) {
+  const isCorrect = clickedCode === correctCode;
+
+  if (isCorrect) {
     score += 1;
     els.score.textContent = String(score);
     el.classList.add("correct");
@@ -371,6 +374,17 @@ function handleQuizClick(el) {
   }
 
   setNextEnabled(true);
+
+  if (isCorrect && els.autoNext?.checked) {
+    window.setTimeout(() => {
+      // if the user already advanced / restarted / switched mode, ignore
+      if (mode !== "quiz") return;
+      if (inRound) return;
+      if (!target) return;
+
+      nextRound();
+    }, 1500);
+  }
 }
 
 function handleMapClick(e) {

@@ -70,6 +70,22 @@ body {
   flex-wrap: wrap;
 }
 
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+  user-select: none;
+}
+
+.check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
 .roundSelect {
   display: inline-flex;
   align-items: center;

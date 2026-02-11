@@ -58,6 +58,12 @@ const STATES = [
 const els = {
   map: document.getElementById("usMap"),
   toast: document.getElementById("toast"),
+  quizBanner: document.getElementById("quizBanner"),
+  quizBannerLine: document.getElementById("quizBannerLine"),
+  quizBannerMsg: document.getElementById("quizBannerMsg"),
+  bannerText: document.getElementById("quizBannerText"),
+  bannerNextBtn: document.getElementById("bannerNextBtn"),
+  bannerRestartBtn: document.getElementById("bannerRestartBtn"),
   targetState: document.getElementById("targetState"),
   hint: document.getElementById("hint"),
   score: document.getElementById("score"),
@@ -80,6 +86,11 @@ function findStateByCode(code) {
 
 function setQuizUIVisible(visible) {
   els.quizOnly.forEach((el) => el.classList.toggle("hidden", !visible));
+}
+
+function setNextEnabled(enabled) {
+  els.nextBtn.disabled = !enabled;
+  if (els.bannerNextBtn) els.bannerNextBtn.disabled = !enabled;
 }
 
 let toastTimer = null;
@@ -109,6 +120,53 @@ function hideToast() {
     toastTimer = null;
   }
   els.toast.classList.add("hidden");
+}
+
+let quizMsgTimer = null;
+
+function showQuizMessage(text, kind = "neutral") {
+  if (!els.quizBannerMsg) return;
+
+  if (quizMsgTimer) {
+    window.clearTimeout(quizMsgTimer);
+    quizMsgTimer = null;
+  }
+
+  els.quizBannerMsg.textContent = text;
+  els.quizBannerMsg.classList.remove("hidden", "good", "bad");
+  if (kind === "good") els.quizBannerMsg.classList.add("good");
+  if (kind === "bad") els.quizBannerMsg.classList.add("bad");
+
+  quizMsgTimer = window.setTimeout(() => {
+    els.quizBannerMsg.classList.add("hidden");
+    els.quizBannerMsg.classList.remove("good", "bad");
+    quizMsgTimer = null;
+  }, 3000);
+}
+
+function hideQuizMessage() {
+  if (!els.quizBannerMsg) return;
+
+  if (quizMsgTimer) {
+    window.clearTimeout(quizMsgTimer);
+    quizMsgTimer = null;
+  }
+  els.quizBannerMsg.classList.add("hidden");
+  els.quizBannerMsg.classList.remove("good", "bad");
+}
+
+function updateQuizBanner() {
+  if (!els.quizBanner || !els.quizBannerLine) return;
+
+  const show = mode === "quiz" && round > 0 && totalRounds > 0 && target;
+  els.quizBanner.classList.toggle("hidden", !show);
+
+  if (!show) return;
+
+  const safeTotal = Number.isFinite(totalRounds) ? totalRounds : 0;
+  const line = `Round ${round}/${safeTotal}: Find ${target.name}`;
+  if (els.bannerText) els.bannerText.textContent = line;
+  else els.quizBannerLine.textContent = line;
 }
 
 let mode = "quiz"; // "quiz" | "learn"
@@ -149,12 +207,19 @@ function setMode(nextMode) {
   // Reset state when switching modes
   resetStateClasses();
   hideToast();
+  hideQuizMessage();
+  setNextEnabled(false);
   inRound = false;
   target = null;
   remaining = [];
+  round = 0;
+
+  updateQuizBanner();
 
   if (mode === "learn") {
     setQuizUIVisible(false);
+    els.quizBanner?.classList.add("hidden");
+    if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = true;
     els.endScreen.classList.add("hidden");
     els.score.textContent = "0";
     els.round.textContent = "—";
@@ -172,8 +237,9 @@ function setMode(nextMode) {
     els.targetState.textContent = "—";
     setHint("Pick the correct state on the map.");
     els.startBtn.disabled = false;
-    els.restartBtn.disabled = true;
-    els.nextBtn.disabled = true;
+    els.restartBtn.disabled = false;
+    if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = false;
+    setNextEnabled(false);
   }
 }
 
@@ -184,6 +250,11 @@ function startGame() {
   round = 0;
   inRound = false;
   target = null;
+
+  hideQuizMessage();
+  setNextEnabled(false);
+  els.restartBtn.disabled = false;
+  if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = false;
 
   totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
   if (!Number.isFinite(totalRounds) || totalRounds <= 0) totalRounds = DEFAULT_TOTAL_ROUNDS;
@@ -216,6 +287,7 @@ function nextRound() {
   if (mode !== "quiz") return;
 
   resetStateClasses();
+  hideQuizMessage();
 
   if (round >= totalRounds || remaining.length === 0) {
     endGame();
@@ -225,11 +297,15 @@ function nextRound() {
   round += 1;
   inRound = true;
   els.round.textContent = String(round);
-  els.nextBtn.disabled = true;
+  setNextEnabled(false);
 
   target = remaining.pop();
-  els.targetState.textContent = target.name;
+
+  // Hide the state name in the main prompt for quiz mode; use banner instead.
+  els.targetState.textContent = "—";
   setHint("Click the correct state on the map.");
+
+  updateQuizBanner();
 }
 
 function endGame() {
@@ -239,12 +315,15 @@ function endGame() {
   target = null;
 
   els.targetState.textContent = "—";
-  els.nextBtn.disabled = true;
+  setNextEnabled(false);
   els.startBtn.disabled = false;
 
   els.finalScore.textContent = String(score);
   els.endScreen.classList.remove("hidden");
   setHint("Game finished.", "neutral");
+
+  hideQuizMessage();
+  updateQuizBanner();
 }
 
 function handleLearnClick(el) {
@@ -278,6 +357,7 @@ function handleQuizClick(el) {
     els.score.textContent = String(score);
     el.classList.add("correct");
     setHint("Correct!", "good");
+    showQuizMessage("Correct!", "good");
   } else {
     el.classList.add("wrong");
     const correctEl = els.map.querySelector(`#${CSS.escape(correctCode)}`);
@@ -287,9 +367,10 @@ function handleQuizClick(el) {
     const clickedName = clicked ? clicked.name : clickedCode;
 
     setHint(`Wrong. That was ${clickedName}.`, "bad");
+    showQuizMessage(`Wrong, that was ${clickedName}.`, "bad");
   }
 
-  els.nextBtn.disabled = false;
+  setNextEnabled(true);
 }
 
 function handleMapClick(e) {
@@ -310,6 +391,12 @@ els.modeToggle?.addEventListener("change", () => {
 els.startBtn.addEventListener("click", startGame);
 els.nextBtn.addEventListener("click", nextRound);
 els.restartBtn.addEventListener("click", () => {
+  els.startBtn.disabled = false;
+  startGame();
+});
+
+els.bannerNextBtn?.addEventListener("click", nextRound);
+els.bannerRestartBtn?.addEventListener("click", () => {
   els.startBtn.disabled = false;
   startGame();
 });

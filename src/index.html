@@ -9,6 +9,26 @@
   <body>
     <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
 
+    <div
+      id="quizBanner"
+      class="quizBanner hidden"
+      role="status"
+      aria-live="polite"
+    >
+      <div id="quizBannerLine" class="quizBanner__line">
+        <div id="quizBannerText" class="quizBanner__text"></div>
+        <div class="quizBanner__controls" aria-label="Quiz controls">
+          <button id="bannerNextBtn" disabled>Next</button>
+          <button id="bannerRestartBtn" class="secondary" disabled>Restart</button>
+        </div>
+      </div>
+      <div
+        id="quizBannerMsg"
+        class="quizBanner__msg hidden"
+        aria-live="polite"
+      ></div>
+    </div>
+
     <main class="container">
       <header class="topbar">
         <h1>USA Quiz</h1>

@@ -1,0 +1,25 @@
+{
+  "name": "usaquiz",
+  "version": "1.0.0",
+  "description": "This is a simple quiz game about the United States.",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve:dist": "python3 -m http.server 8000 --directory dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RubikNube/UsaQuiz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RubikNube/UsaQuiz/issues"
+  },
+  "homepage": "https://github.com/RubikNube/UsaQuiz#readme",
+  "devDependencies": {
+    "esbuild": "^0.27.3"
+  }
+}

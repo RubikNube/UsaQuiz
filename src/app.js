@@ -66,7 +66,6 @@ const els = {
   bannerRestartBtn: document.getElementById("bannerRestartBtn"),
   learnBannerFlagWrap: document.getElementById("learnBannerFlagWrap"),
   learnBannerFlagImg: document.getElementById("learnBannerFlagImg"),
-  bannerText: document.getElementById("quizBannerText"),
   targetState: document.getElementById("targetState"),
   hint: document.getElementById("hint"),
   score: document.getElementById("score"),
@@ -352,7 +351,7 @@ function handleLearnClick(el) {
   el.classList.add("correct");
 
   // In learn mode show state name + flag in the toast.
-  showToast(clickedName, `../assets/flags/${clickedCode}.svg`, `${clickedName} flag`);
+  showToast(clickedName, `assets/flags/${clickedCode}.svg`, `${clickedName} flag`);
 
   // Keep the prompt area stable in fullscreen; avoid relying on it.
   els.targetState.textContent = "Click a state";

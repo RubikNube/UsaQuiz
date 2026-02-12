@@ -25,4 +25,14 @@ https://rubiknube.github.io/UsaQuiz/
 
 ## Resources
 
+### US map
+
 File:Blank US Electoral Map Revised.svg. (2023, November 26). Wikimedia Commons. Retrieved February 11, 2026, from https://commons.wikimedia.org/w/index.php?title=File:Blank_US_Electoral_Map_Revised.svg&oldid=825333292.
+
+### Flags
+
+The state flag images are downloaded from Wikimedia Commons.
+
+Attribution and license details per flag: [`assets/flags/ATTRIBUTION.md`](assets/flags/ATTRIBUTION.md)
+
+Source collection: https://commons.wikimedia.org/wiki/Flags_of_the_U.S._states

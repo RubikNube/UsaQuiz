@@ -27,6 +27,9 @@
         class="quizBanner__msg hidden"
         aria-live="polite"
       ></div>
+      <div id="learnBannerFlagWrap" class="learnBannerFlag hidden" aria-label="State flag">
+        <img id="learnBannerFlagImg" alt="" />
+      </div>
     </div>
 
     <main class="container">
@@ -43,6 +46,11 @@
           Click: <span id="targetState">—</span>
         </div>
         <div class="hint" id="hint">Pick the correct state on the map.</div>
+
+        <div id="learnFlagWrap" class="learnFlag hidden" aria-label="State flag">
+          <img id="learnFlagImg" alt="" />
+        </div>
+
         <div class="controls">
           <label class="roundSelect" for="modeToggle">
             Mode:

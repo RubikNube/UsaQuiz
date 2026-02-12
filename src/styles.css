@@ -63,6 +63,20 @@ body {
   min-height: 18px;
 }
 
+.learnFlag {
+  display: grid;
+  place-items: start;
+}
+
+.learnFlag img {
+  width: min(260px, 100%);
+  height: auto;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 10px;
+}
+
 .controls {
   display: flex;
   gap: 10px;
@@ -116,6 +130,34 @@ body {
   filter: brightness(1.08);
   border-color: rgba(91, 188, 255, 0.35);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+.controls select:focus-visible {
+  outline: 2px solid rgba(91, 188, 255, 0.45);
+  outline-offset: 3px;
+}
+
+/* custom chevron (only for labels that wrap a select) */
+.roundSelect {
+  position: relative;
+}
+.roundSelect::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translateY(-50%) rotate(45deg);
+  border-right: 2px solid rgba(232, 238, 252, 0.85);
+  border-bottom: 2px solid rgba(232, 238, 252, 0.85);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.controls select option {
+  background: #111a2e;
+  color: var(--text);
 }
 
 .controls select:focus-visible {
@@ -209,10 +251,23 @@ button:disabled {
 
   box-shadow: 0 14px 38px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(8px);
+
+  display: grid;
+  justify-items: center;
+  gap: 10px;
 }
 
 .toast.hidden {
   display: none;
+}
+
+.toast img {
+  width: min(220px, 80vw);
+  height: auto;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 10px;
 }
 
 .quizBanner {
@@ -265,6 +320,25 @@ button:disabled {
   font-weight: 700;
 }
 
+.learnBannerFlag {
+  max-width: 1100px;
+  margin: 10px auto 0;
+  padding: 0 4px;
+}
+
+.learnBannerFlag img {
+  width: min(260px, 92vw);
+  height: auto;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 10px;
+}
+
+.learnBannerFlag.hidden {
+  display: none;
+}
+
 .quizBanner__msg.good {
   color: var(--good);
 }
@@ -275,16 +349,6 @@ button:disabled {
 
 .quizBanner__msg.hidden {
   display: none;
-}
-
-.ocean { fill: #0e1730; }
-
-.state {
-  fill: var(--state);
-  stroke: var(--stroke);
-  stroke-width: 2;
-  cursor: pointer;
-  transition: fill 120ms ease;
 }
 .state:hover { fill: var(--stateHover); }
 

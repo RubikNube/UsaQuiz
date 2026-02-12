@@ -64,6 +64,9 @@ const els = {
   bannerText: document.getElementById("quizBannerText"),
   bannerNextBtn: document.getElementById("bannerNextBtn"),
   bannerRestartBtn: document.getElementById("bannerRestartBtn"),
+  learnBannerFlagWrap: document.getElementById("learnBannerFlagWrap"),
+  learnBannerFlagImg: document.getElementById("learnBannerFlagImg"),
+  bannerText: document.getElementById("quizBannerText"),
   targetState: document.getElementById("targetState"),
   hint: document.getElementById("hint"),
   score: document.getElementById("score"),
@@ -78,6 +81,8 @@ const els = {
   endScreen: document.getElementById("endScreen"),
   finalScore: document.getElementById("finalScore"),
   promptLine: document.getElementById("promptLine"),
+  learnFlagWrap: document.getElementById("learnFlagWrap"),
+  learnFlagImg: document.getElementById("learnFlagImg"),
   quizOnly: Array.from(document.querySelectorAll("[data-quiz-only]")),
 };
 
@@ -96,7 +101,7 @@ function setNextEnabled(enabled) {
 
 let toastTimer = null;
 
-function showToast(text) {
+function showToast(text, flagSrc = null, flagAlt = "") {
   if (!els.toast) return;
 
   if (toastTimer) {
@@ -104,23 +109,21 @@ function showToast(text) {
     toastTimer = null;
   }
 
-  els.toast.textContent = text;
+  els.toast.textContent = "";
+  if (flagSrc) {
+    const img = document.createElement("img");
+    img.src = flagSrc;
+    img.alt = flagAlt;
+    els.toast.appendChild(img);
+  }
+  els.toast.appendChild(document.createTextNode(text));
+
   els.toast.classList.remove("hidden");
 
   toastTimer = window.setTimeout(() => {
     els.toast.classList.add("hidden");
     toastTimer = null;
   }, 3000);
-}
-
-function hideToast() {
-  if (!els.toast) return;
-
-  if (toastTimer) {
-    window.clearTimeout(toastTimer);
-    toastTimer = null;
-  }
-  els.toast.classList.add("hidden");
 }
 
 let quizMsgTimer = null;
@@ -215,6 +218,18 @@ function setMode(nextMode) {
   remaining = [];
   round = 0;
 
+  // Learn mode flag UI
+  els.learnFlagWrap?.classList.add("hidden");
+  if (els.learnFlagImg) {
+    els.learnFlagImg.src = "";
+    els.learnFlagImg.alt = "";
+  }
+  els.learnBannerFlagWrap?.classList.add("hidden");
+  if (els.learnBannerFlagImg) {
+    els.learnBannerFlagImg.src = "";
+    els.learnBannerFlagImg.alt = "";
+  }
+
   updateQuizBanner();
 
   if (mode === "learn") {
@@ -226,7 +241,7 @@ function setMode(nextMode) {
     els.round.textContent = "—";
     els.totalRounds.textContent = "—";
     els.targetState.textContent = "Click a state";
-    setHint("Learn mode: click a state to see its name.");
+    setHint("Learn mode: click a state to see its name and flag.");
   } else {
     setQuizUIVisible(true);
     totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
@@ -336,12 +351,12 @@ function handleLearnClick(el) {
 
   el.classList.add("correct");
 
-  // In learn mode the state name is shown as a transient notification.
-  showToast(clickedName);
+  // In learn mode show state name + flag in the toast.
+  showToast(clickedName, `../assets/flags/${clickedCode}.svg`, `${clickedName} flag`);
 
   // Keep the prompt area stable in fullscreen; avoid relying on it.
   els.targetState.textContent = "Click a state";
-  setHint("Learn mode: click a state to see its name.");
+  setHint("Learn mode: click a state to see its name and flag.");
 }
 
 function handleQuizClick(el) {

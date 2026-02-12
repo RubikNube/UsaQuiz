@@ -83,6 +83,7 @@ const els = {
   learnFlagWrap: document.getElementById("learnFlagWrap"),
   learnFlagImg: document.getElementById("learnFlagImg"),
   quizOnly: Array.from(document.querySelectorAll("[data-quiz-only]")),
+  learnOnly: Array.from(document.querySelectorAll("[data-learn-only]")),
 };
 
 function findStateByCode(code) {
@@ -91,6 +92,10 @@ function findStateByCode(code) {
 
 function setQuizUIVisible(visible) {
   els.quizOnly.forEach((el) => el.classList.toggle("hidden", !visible));
+}
+
+function setLearnUIVisible(visible) {
+  els.learnOnly.forEach((el) => el.classList.toggle("hidden", !visible));
 }
 
 function setNextEnabled(enabled) {
@@ -125,6 +130,15 @@ function showToast(text, flagSrc = null, flagAlt = "") {
   }, 3000);
 }
 
+function hideToast() {
+  if (!els.toast) return;
+  els.toast.classList.add("hidden");
+  if (toastTimer) {
+    window.clearTimeout(toastTimer);
+    toastTimer = null;
+  }
+}
+
 let quizMsgTimer = null;
 
 function showQuizMessage(text, kind = "neutral") {
@@ -156,6 +170,38 @@ function hideQuizMessage() {
   }
   els.quizBannerMsg.classList.add("hidden");
   els.quizBannerMsg.classList.remove("good", "bad");
+}
+
+function ensureLearnFlagsToggle() {
+  if (els.showLearnFlagsToggle) return;
+
+  const hintParent = els.hint?.parentElement ?? null;
+  if (!hintParent) return;
+
+  const id = "showLearnFlags";
+  const wrap = document.createElement("label");
+  wrap.className = "learn-flags-toggle";
+  wrap.dataset.learnOnly = "";
+  wrap.style.display = "inline-flex";
+  wrap.style.alignItems = "center";
+  wrap.style.gap = "0.5rem";
+  wrap.style.userSelect = "none";
+  wrap.style.marginTop = "0.5rem";
+
+  const input = document.createElement("input");
+  input.type = "checkbox";
+  input.id = id;
+  input.checked = true;
+
+  const text = document.createElement("span");
+  text.textContent = "Show flags";
+
+  wrap.appendChild(input);
+  wrap.appendChild(text);
+  hintParent.appendChild(wrap);
+
+  els.showLearnFlagsToggle = input;
+  els.learnOnly = Array.from(document.querySelectorAll("[data-learn-only]"));
 }
 
 function updateQuizBanner() {
@@ -232,7 +278,9 @@ function setMode(nextMode) {
   updateQuizBanner();
 
   if (mode === "learn") {
+    ensureLearnFlagsToggle();
     setQuizUIVisible(false);
+    setLearnUIVisible(true);
     els.quizBanner?.classList.add("hidden");
     if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = true;
     els.endScreen.classList.add("hidden");
@@ -243,6 +291,7 @@ function setMode(nextMode) {
     setHint("Learn mode: click a state to see its name and flag.");
   } else {
     setQuizUIVisible(true);
+    setLearnUIVisible(false);
     totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
     if (!Number.isFinite(totalRounds) || totalRounds <= 0) {
       totalRounds = DEFAULT_TOTAL_ROUNDS;
@@ -350,8 +399,13 @@ function handleLearnClick(el) {
 
   el.classList.add("correct");
 
-  // In learn mode show state name + flag in the toast.
-  showToast(clickedName, `assets/flags/${clickedCode}.svg`, `${clickedName} flag`);
+  const showFlags = els.showLearnFlagsToggle?.checked ?? true;
+  if (showFlags) {
+    // In learn mode show state name + flag in the toast.
+    showToast(clickedName, `assets/flags/${clickedCode}.svg`, `${clickedName} flag`);
+  } else {
+    showToast(clickedName);
+  }
 
   // Keep the prompt area stable in fullscreen; avoid relying on it.
   els.targetState.textContent = "Click a state";

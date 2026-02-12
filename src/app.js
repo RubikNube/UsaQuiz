@@ -201,7 +201,13 @@ function ensureLearnFlagsToggle() {
   hintParent.appendChild(wrap);
 
   els.showLearnFlagsToggle = input;
-  els.learnOnly = Array.from(document.querySelectorAll("[data-learn-only]"));
+}
+
+function removeLearnFlagsToggle() {
+  if (!els.showLearnFlagsToggle) return;
+  const wrap = els.showLearnFlagsToggle.parentElement;
+  if (wrap) wrap.remove();
+  els.showLearnFlagsToggle = undefined;
 }
 
 function updateQuizBanner() {
@@ -290,6 +296,7 @@ function setMode(nextMode) {
     els.targetState.textContent = "Click a state";
     setHint("Learn mode: click a state to see its name and flag.");
   } else {
+    removeLearnFlagsToggle();
     setQuizUIVisible(true);
     setLearnUIVisible(false);
     totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);

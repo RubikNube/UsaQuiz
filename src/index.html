@@ -45,6 +45,10 @@
         <div class="stateName" id="promptLine">
           Click: <span id="targetState">—</span>
         </div>
+        <div id="capitalQuiz" class="capitalQuiz hidden">
+          <div id="capitalQuestion"></div>
+          <div id="capitalOptions"></div>
+        </div>
         <div class="hint" id="hint">Pick the correct state on the map.</div>
 
         <div id="learnFlagWrap" class="learnFlag hidden" aria-label="State flag">
@@ -56,6 +60,7 @@
             Mode:
             <select id="modeToggle">
               <option value="quiz" selected>Quiz</option>
+              <option value="capital">Guess the Capital</option>
               <option value="learn">Learn</option>
             </select>
           </label>
@@ -71,14 +76,24 @@
             </select>
           </label>
 
+          <label class="roundSelect" for="capitalOptionCount" data-capital-only style="display:none;">
+            Options:
+            <select id="capitalOptionCount">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4" selected>4</option>
+              <option value="5">5</option>
+            </select>
+          </label>
+
           <label class="check" for="autoNext" data-quiz-only>
             <input id="autoNext" type="checkbox" checked />
             Auto next
           </label>
 
-          <button id="startBtn" data-quiz-only>Start</button>
-          <button id="nextBtn" disabled data-quiz-only>Next</button>
-          <button id="restartBtn" class="secondary" disabled data-quiz-only>Restart</button>
+          <button id="startBtn" class="hidden">Start</button>
+          <button id="nextBtn" class="hidden" disabled>Next</button>
+          <button id="restartBtn" class="secondary hidden" disabled>Restart</button>
         </div>
       </section>
 

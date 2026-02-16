@@ -140,7 +140,11 @@ function showToast(text, flagSrc = null, flagAlt = "") {
     img.alt = flagAlt;
     els.toast.appendChild(img);
   }
-  els.toast.appendChild(document.createTextNode(text));
+  // Replace \n with <br> and set as HTML
+  const htmlText = text.replace(/\n/g, "<br>");
+  const span = document.createElement("span");
+  span.innerHTML = htmlText;
+  els.toast.appendChild(span);
 
   els.toast.classList.remove("hidden");
 
@@ -216,18 +220,41 @@ function ensureLearnFlagsToggle() {
   const text = document.createElement("span");
   text.textContent = "Show flags";
 
+  // --- Capital toggle ---
+  const capWrap = document.createElement("label");
+  capWrap.className = "learn-capital-toggle";
+  capWrap.style.display = "inline-flex";
+  capWrap.style.alignItems = "center";
+  capWrap.style.gap = "0.5rem";
+  capWrap.style.userSelect = "none";
+  capWrap.style.marginLeft = "1.5rem";
+
+  const capInput = document.createElement("input");
+  capInput.type = "checkbox";
+  capInput.id = "showLearnCapital";
+  capInput.checked = true;
+
+  const capText = document.createElement("span");
+  capText.textContent = "Show capital";
+
+  capWrap.appendChild(capInput);
+  capWrap.appendChild(capText);
+
   wrap.appendChild(input);
   wrap.appendChild(text);
+  wrap.appendChild(capWrap);
   hintParent.appendChild(wrap);
 
   els.showLearnFlagsToggle = input;
+  els.showLearnCapitalToggle = capInput;
 }
 
 function removeLearnFlagsToggle() {
-  if (!els.showLearnFlagsToggle) return;
-  const wrap = els.showLearnFlagsToggle.parentElement;
+  if (!els.showLearnFlagsToggle && !els.showLearnCapitalToggle) return;
+  const wrap = els.showLearnFlagsToggle?.parentElement;
   if (wrap) wrap.remove();
   els.showLearnFlagsToggle = undefined;
+  els.showLearnCapitalToggle = undefined;
 }
 
 function updateQuizBanner() {
@@ -622,19 +649,25 @@ function handleLearnClick(el) {
   const clickedCode = el.id;
   const clicked = findStateByCode(clickedCode);
   const clickedName = clicked ? clicked.name : clickedCode;
+  const clickedCapital = clicked ? clicked.capital : "";
 
   el.classList.add("correct");
 
   const showFlags = els.showLearnFlagsToggle?.checked ?? true;
+  const showCapital = els.showLearnCapitalToggle?.checked ?? true;
+  let toastText = clickedName;
+  if (clickedCapital && showCapital) {
+    toastText += `\nCapital: ${clickedCapital}`;
+  }
   if (showFlags) {
     // In learn mode show state name + flag in the toast.
     showToast(
-      clickedName,
+      toastText,
       `assets/flags/${clickedCode}.svg`,
       `${clickedName} flag`,
     );
   } else {
-    showToast(clickedName);
+    showToast(toastText);
   }
 
   // Keep the prompt area stable in fullscreen; avoid relying on it.

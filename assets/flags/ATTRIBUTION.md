@@ -6,7 +6,6 @@ Source collection: https://commons.wikimedia.org/wiki/Flags_of_the_U.S._states
 
 Each entry lists the metadata provided by Wikimedia Commons (author/license may vary per file).
 
-
 ## AK.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Alaska.svg

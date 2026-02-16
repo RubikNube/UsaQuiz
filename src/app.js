@@ -103,7 +103,7 @@ function setQuizUIVisible(visible) {
 function setCapitalUIVisible(visible) {
   // Capital mode: show start, next, restart
   const show = visible;
-  ["startBtn", "nextBtn", "restartBtn"].forEach(id => {
+  ["startBtn", "nextBtn", "restartBtn"].forEach((id) => {
     const btn = els[id];
     if (btn) btn.classList.toggle("hidden", !show);
   });
@@ -112,7 +112,7 @@ function setCapitalUIVisible(visible) {
 
 function setLearnUIVisible(visible) {
   // Learn mode: hide all control buttons
-  ["startBtn", "nextBtn", "restartBtn"].forEach(id => {
+  ["startBtn", "nextBtn", "restartBtn"].forEach((id) => {
     const btn = els[id];
     if (btn) btn.classList.add("hidden");
   });
@@ -233,7 +233,11 @@ function removeLearnFlagsToggle() {
 function updateQuizBanner() {
   if (!els.quizBanner || !els.quizBannerLine) return;
 
-  const show = (mode === "quiz" || mode === "capital") && round > 0 && totalRounds > 0 && target;
+  const show =
+    (mode === "quiz" || mode === "capital") &&
+    round > 0 &&
+    totalRounds > 0 &&
+    target;
   els.quizBanner.classList.toggle("hidden", !show);
 
   if (!show) return;
@@ -246,9 +250,11 @@ function updateQuizBanner() {
     // Show all capital options in the banner as clickable buttons
     let options = "";
     if (capitalOptions && capitalOptions.length > 0) {
-      options = capitalOptions.map(s => {
-        return `<button class="capitalOptionBtn banner" type="button" data-capital="${encodeURIComponent(s.capital)}"${inRound && !capitalAnswered ? "" : " disabled"}>${s.capital}</button>`;
-      }).join("  ");
+      options = capitalOptions
+        .map((s) => {
+          return `<button class="capitalOptionBtn banner" type="button" data-capital="${encodeURIComponent(s.capital)}"${inRound && !capitalAnswered ? "" : " disabled"}>${s.capital}</button>`;
+        })
+        .join("  ");
     }
     line = `Round ${round}/${safeTotal}: Guess the capital of ${target.name} — [ ${options} ]`;
   }
@@ -256,12 +262,20 @@ function updateQuizBanner() {
   else els.quizBannerLine.innerHTML = line;
 
   // Attach click handlers for banner capital buttons (only in capital mode)
-  if (mode === "capital" && capitalOptions && capitalOptions.length > 0 && inRound && !capitalAnswered) {
-    const bannerBtns = (els.bannerText || els.quizBannerLine).querySelectorAll(".capitalOptionBtn.banner");
-    bannerBtns.forEach(btn => {
+  if (
+    mode === "capital" &&
+    capitalOptions &&
+    capitalOptions.length > 0 &&
+    inRound &&
+    !capitalAnswered
+  ) {
+    const bannerBtns = (els.bannerText || els.quizBannerLine).querySelectorAll(
+      ".capitalOptionBtn.banner",
+    );
+    bannerBtns.forEach((btn) => {
       btn.onclick = () => {
         const cap = decodeURIComponent(btn.getAttribute("data-capital"));
-        const state = capitalOptions.find(s => s.capital === cap);
+        const state = capitalOptions.find((s) => s.capital === cap);
         if (state) handleCapitalOptionClick(state, btn);
       };
     });
@@ -303,7 +317,12 @@ function setHint(text, kind = "neutral") {
 }
 
 function setMode(nextMode) {
-  mode = nextMode === "learn" ? "learn" : nextMode === "capital" ? "capital" : "quiz";
+  mode =
+    nextMode === "learn"
+      ? "learn"
+      : nextMode === "capital"
+        ? "capital"
+        : "quiz";
 
   // Reset state when switching modes
   resetStateClasses();
@@ -405,10 +424,13 @@ function startGame() {
     if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = false;
 
     totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
-    if (!Number.isFinite(totalRounds) || totalRounds <= 0) totalRounds = DEFAULT_TOTAL_ROUNDS;
+    if (!Number.isFinite(totalRounds) || totalRounds <= 0)
+      totalRounds = DEFAULT_TOTAL_ROUNDS;
 
     // Only include states that exist in the SVG (by id).
-    const available = STATES.filter((s) => els.map.querySelector(`#${CSS.escape(s.code)}`));
+    const available = STATES.filter((s) =>
+      els.map.querySelector(`#${CSS.escape(s.code)}`),
+    );
 
     // Cap rounds to available states.
     totalRounds = Math.min(totalRounds, available.length);
@@ -443,7 +465,8 @@ function startGame() {
     if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = false;
 
     totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
-    if (!Number.isFinite(totalRounds) || totalRounds <= 0) totalRounds = DEFAULT_TOTAL_ROUNDS;
+    if (!Number.isFinite(totalRounds) || totalRounds <= 0)
+      totalRounds = DEFAULT_TOTAL_ROUNDS;
     els.totalRounds.textContent = String(totalRounds);
 
     els.endScreen.classList.add("hidden");
@@ -477,7 +500,9 @@ function handleCapitalOptionClick(selectedState, btn) {
   });
 
   // Mark all banner buttons
-  const bannerBtns = (els.bannerText || els.quizBannerLine).querySelectorAll(".capitalOptionBtn.banner");
+  const bannerBtns = (els.bannerText || els.quizBannerLine).querySelectorAll(
+    ".capitalOptionBtn.banner",
+  );
   bannerBtns.forEach((b) => {
     b.disabled = true;
     if (b.textContent === target.capital) {
@@ -562,7 +587,9 @@ function nextCapitalRound() {
 
   // Prepare options
   const optionCount = Math.max(2, Number(els.capitalOptionCount?.value) || 4);
-  const wrongStates = shuffle(STATES.filter((s) => s.code !== target.code)).slice(0, optionCount - 1);
+  const wrongStates = shuffle(
+    STATES.filter((s) => s.code !== target.code),
+  ).slice(0, optionCount - 1);
   capitalOptions = shuffle([target, ...wrongStates]);
 
   updateQuizBanner();
@@ -601,7 +628,11 @@ function handleLearnClick(el) {
   const showFlags = els.showLearnFlagsToggle?.checked ?? true;
   if (showFlags) {
     // In learn mode show state name + flag in the toast.
-    showToast(clickedName, `assets/flags/${clickedCode}.svg`, `${clickedName} flag`);
+    showToast(
+      clickedName,
+      `assets/flags/${clickedCode}.svg`,
+      `${clickedName} flag`,
+    );
   } else {
     showToast(clickedName);
   }

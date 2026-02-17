@@ -6,9 +6,9 @@ https://rubiknube.github.io/UsaQuiz/
 
 ## Features
 
-- [x] Find the state on a USA map (Quiz + Learn mode)
-- [x] Guess the state capital (select number of options, minimum 2)
-- [ ] Guess the state flag
+* [x] Find the state on a USA map (Quiz + Learn mode)
+* [x] Select the state capital
+* [ ] Guess the state flag
 
 ## How to Play
 
@@ -20,7 +20,7 @@ https://rubiknube.github.io/UsaQuiz/
        answer (on by default).
      - If you answer **wrong**, the correct state is highlighted and you
        must press **Next** to continue.
-   - **Guess the Capital**: press **Start**, then for each round, the name of a state is shown and you must pick the correct capital from the list of options. The options appear both below and in the top banner as clickable buttons. After answering, the correct capital is highlighted. Use **Options** to choose how many capitals to show (minimum 2). Use **Next** to advance, or **Restart** to start over.
+   - **Select the Capital**: press **Start**, then for each round, the name of a state is shown and you must pick the correct capital from the list of options. The options appear both below and in the top banner as clickable buttons. After answering, the correct capital is highlighted. Use **Next** to advance, or **Restart** to start over.
    - **Learn**: click any state to see its name.
 3. Use **Restart** to start a new game.
 

@@ -6,9 +6,9 @@ https://rubiknube.github.io/UsaQuiz/
 
 ## Features
 
-* [x] Find the state on a USA map (Quiz + Learn mode)
-* [x] Select the state capital
-* [ ] Guess the state flag
+- [x] Find the state on a USA map (Quiz + Learn mode)
+- [x] Select the state capital
+- [ ] Guess the state flag
 
 ## How to Play
 

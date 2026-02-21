@@ -8,7 +8,7 @@ https://rubiknube.github.io/UsaQuiz/
 
 - [x] Find the state on a USA map (Quiz + Learn mode)
 - [x] Select the state capital
-- [ ] Guess the state flag
+- [x] Guess the state flag
 
 ## How to Play
 
@@ -21,6 +21,7 @@ https://rubiknube.github.io/UsaQuiz/
      - If you answer **wrong**, the correct state is highlighted and you
        must press **Next** to continue.
    - **Select the Capital**: press **Start**, then for each round, the name of a state is shown and you must pick the correct capital from the list of options. The options appear both below and in the top banner as clickable buttons. After answering, the correct capital is highlighted. Use **Next** to advance, or **Restart** to start over.
+   - **Flag Quiz**: press **Start**, then for each round, the name of a state is shown in the top banner and you must pick the correct flag from a set of options. The map is hidden in this mode to maximize flag size. Use the **Flag size** dropdown to choose how large the flags appear (Auto, S, M, L, XL, XXL). The UI updates instantly when you change the flag size. After answering, a notification appears for correct or wrong answers. Use **Next** to advance, or **Restart** to start over.
    - **Learn**: click any state to see its name.
 3. Use **Restart** to start a new game.
 

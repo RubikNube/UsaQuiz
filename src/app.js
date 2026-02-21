@@ -88,6 +88,10 @@ const els = {
   capitalQuiz: document.getElementById("capitalQuiz"),
   capitalQuestion: document.getElementById("capitalQuestion"),
   capitalOptions: document.getElementById("capitalOptions"),
+  flagOptions: document.getElementById("flagOptions"),
+  flagQuiz: document.getElementById("flagQuiz"),
+  flagQuestion: document.getElementById("flagQuestion"),
+  flagSizeSelect: document.getElementById("flagSizeSelect"),
 };
 
 function findStateByCode(code) {
@@ -100,6 +104,7 @@ function setQuizUIVisible(visible) {
     const btn = els[id];
     if (btn) btn.classList.toggle("hidden", !visible);
   });
+  els.map?.classList.toggle("hidden", !visible);
 }
 
 function setCapitalUIVisible(visible) {
@@ -108,6 +113,7 @@ function setCapitalUIVisible(visible) {
     const btn = els[id];
     if (btn) btn.classList.toggle("hidden", !visible);
   });
+  els.map?.classList.toggle("hidden", !visible);
   if (els.capitalQuiz) els.capitalQuiz.classList.toggle("hidden", !visible);
 }
 
@@ -117,6 +123,12 @@ function setLearnUIVisible(visible) {
     const btn = els[id];
     if (btn) btn.classList.toggle("hidden", visible);
   });
+  els.map?.classList.toggle("hidden", !visible);
+}
+
+function setFlagQuizUIVisible(visible) {
+  els.map?.classList.toggle("hidden", visible);
+  els.flagQuiz?.classList.toggle("hidden", !visible);
 }
 
 function setNextEnabled(enabled) {
@@ -389,6 +401,7 @@ const QuizState = {
     updateQuizBanner(this);
     setCapitalUIVisible(false);
     setLearnUIVisible(false);
+    setFlagQuizUIVisible(false);
     setQuizUIVisible(true);
     removeLearnFlagsToggle();
     totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
@@ -523,6 +536,7 @@ const CapitalState = {
     updateQuizBanner(this);
     setQuizUIVisible(false);
     setLearnUIVisible(false);
+    setFlagQuizUIVisible(false);
     setCapitalUIVisible(true);
     removeLearnFlagsToggle();
     totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
@@ -679,6 +693,7 @@ const LearnState = {
     updateQuizBanner(this);
     setQuizUIVisible(false);
     setCapitalUIVisible(false);
+    setFlagQuizUIVisible(false);
     setLearnUIVisible(true);
     ensureLearnFlagsToggle();
     els.quizBanner?.classList.add("hidden");
@@ -720,12 +735,177 @@ const LearnState = {
   },
 };
 
+const FlagState = {
+  enter() {
+    resetStateClasses();
+    hideToast();
+    hideQuizMessage();
+    setNextEnabled(false);
+    inRound = false;
+    target = null;
+    remaining = [];
+    round = 0;
+    capitalOptions = [];
+    capitalAnswered = false;
+    els.learnFlagWrap?.classList.add("hidden");
+    if (els.learnFlagImg) {
+      els.learnFlagImg.src = "";
+      els.learnFlagImg.alt = "";
+    }
+    els.learnBannerFlagWrap?.classList.add("hidden");
+    if (els.learnBannerFlagImg) {
+      els.learnBannerFlagImg.src = "";
+      els.learnBannerFlagImg.alt = "";
+    }
+    if (els.flagQuiz) {
+      els.flagQuiz.classList.remove("hidden");
+      els.flagQuestion.textContent = "";
+      els.flagOptions.innerHTML = "";
+    }
+    updateQuizBanner(this);
+    els.quizBanner?.classList.remove("hidden");
+    setQuizUIVisible(false);
+    setCapitalUIVisible(false);
+    setLearnUIVisible(false);
+    setFlagQuizUIVisible(true);
+    removeLearnFlagsToggle();
+    if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = false;
+    els.endScreen.classList.add("hidden");
+    els.score.textContent = "0";
+    els.round.textContent = "1";
+    els.totalRounds.textContent = String(totalRounds);
+    els.targetState.textContent = "—";
+    setHint("Pick the correct flag for the state.");
+    els.startBtn.disabled = false;
+    els.nextBtn.disabled = true;
+    els.restartBtn.disabled = false;
+  },
+  start() {
+    score = 0;
+    round = 0;
+    inRound = false;
+    target = null;
+    capitalOptions = [];
+    capitalAnswered = false;
+    setNextEnabled(false);
+    els.restartBtn.disabled = false;
+    if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = false;
+    totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
+    if (!Number.isFinite(totalRounds) || totalRounds <= 0)
+      totalRounds = DEFAULT_TOTAL_ROUNDS;
+    els.totalRounds.textContent = String(totalRounds);
+    els.endScreen.classList.add("hidden");
+    els.score.textContent = "0";
+    els.round.textContent = "1";
+    els.startBtn.disabled = true;
+    els.nextBtn.disabled = true;
+    els.restartBtn.disabled = false;
+    remaining = shuffle([...STATES]);
+    this.next();
+  },
+  next() {
+    resetStateClasses();
+    hideQuizMessage();
+    if (round >= totalRounds || remaining.length === 0) {
+      this.end();
+      return;
+    }
+    round += 1;
+    inRound = true;
+    capitalAnswered = false;
+    els.round.textContent = String(round);
+    setNextEnabled(false);
+    target = remaining.pop();
+    els.targetState.textContent = target.name;
+    // Prepare options
+    const optionCount = Math.max(2, Number(els.capitalOptionCount?.value) || 4);
+    const wrongStates = shuffle(
+      STATES.filter((s) => s.code !== target.code),
+    ).slice(0, optionCount - 1);
+    capitalOptions = shuffle([target, ...wrongStates]);
+    // Render flag options
+    if (els.flagOptions) {
+      els.flagOptions.innerHTML = "";
+      // Get selected flag size or default to 'm'
+      capitalOptions.forEach((s) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "flagOptionBtn";
+        btn.setAttribute("data-flag", s.code);
+        const flagSize = els.flagSizeSelect?.value || "auto";
+        btn.innerHTML = `<img src="assets/flags/${s.code}.svg" alt="${s.name} flag" class="flag-img size-${flagSize}"><span class="sr-only">${s.name}</span>`;
+        els.flagOptions.appendChild(btn);
+      });
+    }
+    if (els.flagQuestion) {
+      els.flagQuestion.textContent = `Which is the flag of ${target.name}?`;
+    }
+    if (els.bannerText) {
+      els.bannerText.innerHTML = `Which is the flag of <b>${target.name}</b>?`;
+    }
+    els.nextBtn.disabled = true;
+  },
+  end() {
+    inRound = false;
+    target = null;
+    els.targetState.textContent = "—";
+    setNextEnabled(false);
+    els.startBtn.disabled = false;
+    els.finalScore.textContent = String(score);
+    els.endScreen.classList.remove("hidden");
+    setHint("Game finished.", "neutral");
+    hideQuizMessage();
+    if (els.flagQuiz) els.flagQuiz.classList.add("hidden");
+  },
+  handleFlagOptionClick(selectedState, btn) {
+    if (!inRound || capitalAnswered) return;
+    capitalAnswered = true;
+    inRound = false;
+    // Mark all buttons
+    Array.from(els.flagOptions.children).forEach((b) => {
+      b.disabled = true;
+      if (b.getAttribute("data-flag") === target.code) {
+        b.classList.add("correct");
+      }
+      if (b === btn && selectedState.code !== target.code) {
+        b.classList.add("wrong");
+      }
+    });
+    if (selectedState.code === target.code) {
+      score += 1;
+      els.score.textContent = String(score);
+      setHint("Correct!", "good");
+      showQuizMessage("Correct!", "good");
+      window.setTimeout(() => {
+        hideQuizMessage();
+      }, 2000);
+    } else {
+      setHint(`Wrong. That was ${selectedState.name}.`, "bad");
+      showQuizMessage(`Wrong, you clicked on ${selectedState.name}.`, "bad");
+      window.setTimeout(() => {
+        hideQuizMessage();
+      }, 2000);
+    }
+    setNextEnabled(true);
+    els.nextBtn.disabled = false;
+    if (selectedState.code === target.code && els.autoNext?.checked) {
+      window.setTimeout(() => {
+        if (stateMachine.current !== FlagState) return;
+        if (inRound) return;
+        if (!target) return;
+        stateMachine.handle("next");
+      }, 1500);
+    }
+  },
+};
+
 // --- State Machine Instance ---
 const stateMachine = new StateMachine(
   {
     quiz: QuizState,
     capital: CapitalState,
     learn: LearnState,
+    flag: FlagState,
   },
   "quiz",
 );
@@ -769,6 +949,28 @@ els.capitalOptions.addEventListener("click", (e) => {
   const state = capitalOptions.find((s) => s.capital === cap);
   if (state && stateMachine.current === CapitalState) {
     stateMachine.handle("handleCapitalOptionClick", state, btn);
+  }
+});
+
+// Flag option click handler
+els.flagOptions?.addEventListener("click", (e) => {
+  const btn = e.target.closest(".flagOptionBtn");
+  if (!btn) return;
+  const code = btn.getAttribute("data-flag");
+  const state = capitalOptions.find((s) => s.code === code);
+  if (state && stateMachine.current === FlagState) {
+    stateMachine.handle("handleFlagOptionClick", state, btn);
+  }
+});
+
+// Flag size select handler
+els.flagSizeSelect?.addEventListener("change", () => {
+  if (stateMachine.current === FlagState && els.flagOptions) {
+    const flagSize = els.flagSizeSelect.value;
+    els.flagOptions.querySelectorAll('.flag-img').forEach(img => {
+      img.classList.remove('size-auto', 'size-s', 'size-m', 'size-l', 'size-xl', 'size-xxl');
+      img.classList.add(`size-${flagSize}`);
+    });
   }
 });
 

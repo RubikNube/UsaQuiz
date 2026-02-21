@@ -57,6 +57,23 @@
           <div id="capitalQuestion"></div>
           <div id="capitalOptions"></div>
         </div>
+        <div id="flagQuiz" class="capitalQuiz hidden">
+          <div class="controls" style="display: flex; align-items: center; gap: 1rem;">
+            <div id="flagQuestion"></div>
+            <label class="roundSelect" for="flagSizeSelect" style="margin-left: auto;">
+              Flag size:
+              <select id="flagSizeSelect">
+                <option value="auto">Auto</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l" selected>L</option>
+                <option value="xl">XL</option>
+                <option value="xxl">XXL</option>
+              </select>
+            </label>
+          </div>
+          <div id="flagOptions"></div>
+        </div>
         <div class="hint" id="hint">Pick the correct state on the map.</div>
 
         <div
@@ -73,6 +90,7 @@
             <select id="modeToggle">
               <option value="quiz" selected>Quiz</option>
               <option value="capital">Select the Capital</option>
+              <option value="flag">Flag Quiz</option>
               <option value="learn">Learn</option>
             </select>
           </label>

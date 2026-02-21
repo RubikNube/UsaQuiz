@@ -59,6 +59,133 @@ body {
   gap: 10px;
 }
 
+#main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.banner {
+  background: #e3eaff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+#controls {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#status {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+#hint {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+#usMapWrap {
+  margin-bottom: 1rem;
+}
+
+#capitalQuiz, #flagQuiz {
+  margin-bottom: 1rem;
+}
+
+#capitalOptions, #flagOptions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.capitalOptionBtn, .flagOptionBtn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background: #f0f0f0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.capitalOptionBtn.correct, .flagOptionBtn.correct {
+  background: #c8f7c5;
+  border-color: #4caf50;
+}
+
+.capitalOptionBtn.wrong, .flagOptionBtn.wrong {
+  background: #ffd6d6;
+  border-color: #e53935;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.flag-img {
+  width: 120px;
+  height: 80px;
+  display: block;
+}
+
+#flagQuiz .flag-img.size-auto {
+  width: 100%;
+  max-width: 98vw;
+  height: auto;
+  aspect-ratio: 1.5/1;
+  display: block;
+  object-fit: contain;
+  background: #fff; /* optional for contrast */
+}
+
+#flagQuiz .flag-img.size-s {
+  width: 120px;
+  height: 80px;
+}
+
+#flagQuiz .flag-img.size-m {
+  width: 220px;
+  height: 146px;
+}
+
+#flagQuiz .flag-img.size-l {
+  width: 340px;
+  height: 226px;
+}
+
+#flagQuiz .flag-img.size-xl {
+  width: 480px;
+  height: 320px;
+}
+
+#flagQuiz .flag-img.size-xxl {
+  width: 820px;
+  height: 547px;
+}
+
+.hidden {
+  display: none !important;
+}
+
 .stateName {
   font-size: 18px;
 }

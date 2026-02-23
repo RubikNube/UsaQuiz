@@ -65,7 +65,7 @@ body {
   padding: 1rem;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .banner {
@@ -99,18 +99,21 @@ body {
   margin-bottom: 1rem;
 }
 
-#capitalQuiz, #flagQuiz {
+#capitalQuiz,
+#flagQuiz {
   margin-bottom: 1rem;
 }
 
-#capitalOptions, #flagOptions {
+#capitalOptions,
+#flagOptions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   margin-top: 0.5rem;
 }
 
-.capitalOptionBtn, .flagOptionBtn {
+.capitalOptionBtn,
+.flagOptionBtn {
   padding: 0.5rem 1rem;
   border: 1px solid #aaa;
   border-radius: 4px;
@@ -119,12 +122,14 @@ body {
   font-size: 1rem;
 }
 
-.capitalOptionBtn.correct, .flagOptionBtn.correct {
+.capitalOptionBtn.correct,
+.flagOptionBtn.correct {
   background: #c8f7c5;
   border-color: #4caf50;
 }
 
-.capitalOptionBtn.wrong, .flagOptionBtn.wrong {
+.capitalOptionBtn.wrong,
+.flagOptionBtn.wrong {
   background: #ffd6d6;
   border-color: #e53935;
 }

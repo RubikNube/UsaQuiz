@@ -21,6 +21,10 @@ await mkdir(distDir, { recursive: true });
 
 // Copy HTML
 await cp(path.join(srcDir, "index.html"), path.join(distDir, "index.html"));
+await cp(
+  path.join(srcDir, "attribution.html"),
+  path.join(distDir, "attribution.html"),
+);
 
 // Build JS
 await esbuild.build({

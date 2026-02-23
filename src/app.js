@@ -967,8 +967,15 @@ els.flagOptions?.addEventListener("click", (e) => {
 els.flagSizeSelect?.addEventListener("change", () => {
   if (stateMachine.current === FlagState && els.flagOptions) {
     const flagSize = els.flagSizeSelect.value;
-    els.flagOptions.querySelectorAll('.flag-img').forEach(img => {
-      img.classList.remove('size-auto', 'size-s', 'size-m', 'size-l', 'size-xl', 'size-xxl');
+    els.flagOptions.querySelectorAll(".flag-img").forEach((img) => {
+      img.classList.remove(
+        "size-auto",
+        "size-s",
+        "size-m",
+        "size-l",
+        "size-xl",
+        "size-xxl",
+      );
       img.classList.add(`size-${flagSize}`);
     });
   }

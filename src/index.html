@@ -58,9 +58,16 @@
           <div id="capitalOptions"></div>
         </div>
         <div id="flagQuiz" class="capitalQuiz hidden">
-          <div class="controls" style="display: flex; align-items: center; gap: 1rem;">
+          <div
+            class="controls"
+            style="display: flex; align-items: center; gap: 1rem"
+          >
             <div id="flagQuestion"></div>
-            <label class="roundSelect" for="flagSizeSelect" style="margin-left: auto;">
+            <label
+              class="roundSelect"
+              for="flagSizeSelect"
+              style="margin-left: auto"
+            >
               Flag size:
               <select id="flagSizeSelect">
                 <option value="auto" selected>Auto</option>
@@ -1002,14 +1009,15 @@
         <p class="muted">Refresh or click Restart to play again.</p>
       </section>
     </main>
-    <footer class="footer">
+    <footer class="footer" aria-label="Site footer">
       <span class="footer__label">SVG source:</span>
       <a
         href="https://commons.wikimedia.org/wiki/File:Blank_US_Electoral_Map_Revised.svg"
         target="_blank"
         rel="noopener noreferrer"
         >User:Theshibboleth</a
-      >,
+      >
+      <span class="footer__sep">•</span>
       <a
         href="https://creativecommons.org/licenses/by-sa/3.0"
         target="_blank"
@@ -1018,6 +1026,13 @@
       >
       <span class="footer__sep">•</span>
       <span class="footer__text">via Wikimedia Commons</span>
+      <span class="footer__sep">•</span>
+      <a
+        href="../assets/flags/ATTRIBUTION.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Flag image attributions</a
+      >
     </footer>
 
     <script src="app.js"></script>

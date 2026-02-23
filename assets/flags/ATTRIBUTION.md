@@ -10,72 +10,72 @@ Each entry lists the metadata provided by Wikimedia Commons (author/license may 
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Alaska.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Alaska.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Benny Benson
+- License/usage terms: Public domain
 - Modifications: none
 
 ## AL.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Alabama.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Alabama.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Steve Hall (openclipart.org)
+- License/usage terms: CC0 1.0 Universal
 - Modifications: none
 
 ## AR.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Steve Hall (openclipart.org)
+- License/usage terms: Public domain, CC0 1.0 Universal
 - Modifications: none
 
 ## AZ.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Arizona.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arizona.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Madden, Steve Hall (openclipart.org)
+- License/usage terms: Public domain, CC0 1.0 Universal
 - Modifications: none
 
 ## CA.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Donald Graeme Kelley (original), Devin Cook (vectorization)
+- License/usage terms: Public domain (California government work)
 - Modifications: none
 
 ## CO.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Colorado.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/4/46/Flag_of_Colorado.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Andrew Carlisle Carson (original), Fleminra (vector)
+- License/usage terms: Public domain
 - Modifications: none
 
 ## CT.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Connecticut.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/9/96/Flag_of_Connecticut.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Jean-Pierre Demailly, xrmap authors, Commons users (SVG)
+- License/usage terms: Public domain (xrmap collection)
 - Modifications: none
 
 ## DE.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Delaware.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/c/c6/Flag_of_Delaware.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection
+- License/usage terms: Public domain (xrmap collection)
 - Modifications: none
 
 ## FL.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Unknown (Florida government work)
+- License/usage terms: Public domain (Florida government work)
 - Modifications: none
 
 ## GA.svg
@@ -83,325 +83,325 @@ Each entry lists the metadata provided by Wikimedia Commons (author/license may 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Georgia_(U.S._state).svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_the_State_of_Georgia.svg
 - Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- License/usage terms: Public domain (official state symbol, see Commons page)
 - Modifications: none
 
 ## HI.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Hawaii.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Hawaii.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Dbenbenn
+- License/usage terms: Public domain (ineligible for copyright, see Commons page)
 - Modifications: none
 
 ## IA.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Iowa.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Iowa.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Dixie Cornell Gebhardt (designer), Iowa government
+- License/usage terms: Public domain (official state symbol, see Commons page)
 - Modifications: none
 
 ## ID.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Idaho.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_Idaho.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Paul B. Evans, based on a work by the Adjutant General of Idaho and Emma Edwards Green; xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, copyright not renewed)
 - Modifications: none
 
 ## IL.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Illinois.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Illinois.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Denelson83, xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## IN.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Indiana.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/a/ac/Flag_of_Indiana.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Paul Hadley (designer), SVG by Zscout370, modifications by HoosierMan1816
+- License/usage terms: Public domain, CC0 1.0 Universal
 - Modifications: none
 
 ## KS.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Kansas.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_Kansas.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Xrmap
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## KY.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Kentucky.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/8/8d/Flag_of_Kentucky.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Commonwealth of Kentucky, xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## LA.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Louisiana.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/e/e0/Flag_of_Louisiana.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
-- Modifications: none
+- Author: Curtis Vann, Jr., xrmap flag collection
+- License/usage terms: Public domain (see Commons page)
+- Modifications: digitally enhanced and/or modified
 
 ## MA.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Massachusetts.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Massachusetts.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: State of Massachusetts, xrmap flag collection
+- License/usage terms: Public domain (Massachusetts government work, xrmap collection)
 - Modifications: none
 
 ## MD.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Maryland.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Maryland.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Michael Wheeler
+- License/usage terms: Public domain, CC0 1.0 Universal (Open Clip Art Library)
 - Modifications: none
 
 ## ME.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Maine.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Maine.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## MI.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Michigan.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/b/b5/Flag_of_Michigan.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## MN.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Minnesota.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Minnesota.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Minnesota State Emblems Redesign Commission, Jamie Eilat, Undertiago
+- License/usage terms: Public domain (official state symbol, ineligible for copyright, see Commons page)
 - Modifications: none
 
 ## MO.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Missouri.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/5/5a/Flag_of_Missouri.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Marie Watkins Oliver, xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## MS.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Mississippi.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_of_Mississippi.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Rocky Vaughn, Sue Anna Joe, Dominique Pugh, Clay Moss, Kara Giles, Micah Whitson and the Mississippi Department of Archives and History
+- License/usage terms: Public domain (design owned by the state of Mississippi, freely usable)
 - Modifications: none
 
 ## MT.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Montana.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_Montana.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## NC.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_North_Carolina.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/b/bb/Flag_of_North_Carolina.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## ND.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_North_Dakota.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag_of_North_Dakota.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## NE.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Nebraska.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/4/4d/Flag_of_Nebraska.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## NH.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/2/28/Flag_of_New_Hampshire.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## NJ.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_New_Jersey.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_New_Jersey.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection, Denelson83, ChrisRuvolo
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## NM.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_New_Mexico.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_New_Mexico.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Steve Hall (openclipart.org)
+- License/usage terms: Public domain, CC0 1.0 Universal
 - Modifications: none
 
 ## NV.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Nevada.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_Nevada.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
-- Modifications: none
+- Author: Caleb Moore, Wine Guy (OpenClipart), John emil hernandez, HapHaxion, Zscout370
+- License/usage terms: Public domain, CC0 1.0 Universal
+- Modifications: digitally enhanced and/or modified
 
 ## NY.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_New_York.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_New_York.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: State of New York, xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## OH.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Ohio.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Ohio.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: John Eisenmann (designer), SVG by SiBr4, modifications by HoosierMan1816
+- License/usage terms: Public domain (published before 1931, see Commons page)
 - Modifications: none
 
 ## OK.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Oklahoma.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/6/6e/Flag_of_Oklahoma.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## OR.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Oregon.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Oregon.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Denelson83, xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## PA.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Pennsylvania.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Pennsylvania.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Simtropolitan, Jean-Pierre Demailly (old version), xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## RI.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Rhode_Island.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Rhode_Island.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## SC.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_South_Carolina.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/6/69/Flag_of_South_Carolina.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Steve Hall (openclipart.org), South Carolina General Assembly
+- License/usage terms: Public domain, CC0 1.0 Universal
 - Modifications: none
 
 ## SD.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_South_Dakota.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_South_Dakota.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## TN.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Tennessee.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Tennessee.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: -xfi-, Steve Hall (openclipart.org)
+- License/usage terms: Public domain, CC0 1.0 Universal
 - Modifications: none
 
 ## TX.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Paul B. Joiner
+- License/usage terms: Public domain (ineligible for copyright, see Commons page)
 - Modifications: none
 
 ## UT.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Utah.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Utah.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: The State of Utah
+- License/usage terms: Public domain (official state symbol, see Commons page)
 - Modifications: none
 
 ## VA.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Virginia.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Virginia.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: LadyofHats, 痛, Patrickneil, Charles Keck
+- License/usage terms: Public domain, CC0 1.0 Universal
 - Modifications: none
 
 ## VT.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Vermont.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Vermont.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Simtropolitan (current version), Denelson83 (original)
+- License/usage terms: Public domain (released by State of Vermont)
 - Modifications: none
 
 ## WA.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Washington.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/5/54/Flag_of_Washington.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: WA Secretary of State
+- License/usage terms: Public domain (released by State of Washington)
 - Modifications: none
 
 ## WI.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Wisconsin.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/2/22/Flag_of_Wisconsin.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Denelson83, xrmap flag collection
+- License/usage terms: Public domain (xrmap collection, see Commons page)
 - Modifications: none
 
 ## WV.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_West_Virginia.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/2/22/Flag_of_West_Virginia.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Militaryace, Denelson83, some elements from xrmap flag collection
+- License/usage terms: Public domain (released by State of West Virginia, see Commons page)
 - Modifications: none
 
 ## WY.svg
 
 - Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Wyoming.svg
 - Direct file URL: https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Wyoming.svg
-- Author: (not provided in extmetadata)
-- License/usage terms: (not provided in extmetadata)
+- Author: Steve Hall (openclipart.org), Caleb Moore
+- License/usage terms: Public domain, CC0 1.0 Universal
 - Modifications: none

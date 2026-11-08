@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>USA Quiz - States, Capitals, Flags, and Rivers</title>
+    <title>USA Quiz - States, Capitals, Flags, Rivers, and Mountain Ranges</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -17,6 +17,16 @@
       <strong id="riverInfoName"></strong>
       <span id="riverInfoLength"></span>
       <span id="riverInfoSystemLength" class="hidden"></span>
+    </div>
+    <div
+      id="mountainInfo"
+      class="toast riverInfo hidden"
+      role="status"
+      aria-live="polite"
+    >
+      <strong id="mountainInfoName"></strong>
+      <span id="mountainInfoRegion"></span>
+      <span id="mountainInfoPeak"></span>
     </div>
 
     <div
@@ -106,6 +116,7 @@
             <select id="modeToggle">
               <option value="quiz" selected>Quiz</option>
               <option value="river">River Quiz</option>
+              <option value="mountain">Mountain Range Quiz</option>
               <option value="capital">Select the Capital</option>
               <option value="flag">Flag Quiz</option>
               <option value="learn">Learn</option>
@@ -117,6 +128,7 @@
             <select id="roundCount">
               <option value="5">5</option>
               <option value="10" selected>10</option>
+              <option value="12">12</option>
               <option value="15">15</option>
               <option value="20">20</option>
               <option value="50">50</option>
@@ -1091,6 +1103,58 @@
 </g>
 
 
+          </g>
+          <!-- Approximate range routes on this stylized map; transparent paths
+               provide larger click and touch targets. -->
+          <g id="mountainsLayer" class="hidden" aria-label="Mountain ranges">
+            <g class="mountain" data-mountain="rocky" role="button" tabindex="0" aria-label="Rocky Mountains">
+              <path class="mountain-line" d="M 225,193 L 233,237 L 261,283 L 271,321 L 315,370 L 318,405 L 307,447 L 319,485" />
+              <path class="mountain-hit" d="M 225,193 L 233,237 L 261,283 L 271,321 L 315,370 L 318,405 L 307,447 L 319,485" />
+            </g>
+            <g class="mountain" data-mountain="appalachian" role="button" tabindex="0" aria-label="Appalachian Mountains">
+              <path class="mountain-line" d="M 849,256 L 849,296 L 776,359 L 757,406 L 728,453 L 712,483 L 692,503" />
+              <path class="mountain-hit" d="M 849,256 L 849,296 L 776,359 L 757,406 L 728,453 L 712,483 L 692,503" />
+            </g>
+            <g class="mountain" data-mountain="sierra-nevada" role="button" tabindex="0" aria-label="Sierra Nevada">
+              <path class="mountain-line" d="M 100,343 L 98,376 L 98,405 L 104,435 L 104,451" />
+              <path class="mountain-hit" d="M 100,343 L 98,376 L 98,405 L 104,435 L 104,451" />
+            </g>
+            <g class="mountain" data-mountain="cascade" role="button" tabindex="0" aria-label="Cascade Range">
+              <path class="mountain-line" d="M 127,172 L 110,207 L 104,234 L 95,265 L 79,298 L 68,328" />
+              <path class="mountain-hit" d="M 127,172 L 110,207 L 104,234 L 95,265 L 79,298 L 68,328" />
+            </g>
+            <g class="mountain" data-mountain="olympic" role="button" tabindex="0" aria-label="Olympic Mountains">
+              <path class="mountain-line" d="M 90,170 L 92,177 L 89,183" />
+              <path class="mountain-hit" d="M 90,170 L 92,177 L 89,183" />
+            </g>
+            <g class="mountain" data-mountain="wasatch" role="button" tabindex="0" aria-label="Wasatch Range">
+              <path class="mountain-line" d="M 239,342 L 230,367 L 228,393 L 228,412" />
+              <path class="mountain-hit" d="M 239,342 L 230,367 L 228,393 L 228,412" />
+            </g>
+            <g class="mountain" data-mountain="uinta" role="button" tabindex="0" aria-label="Uinta Mountains">
+              <path class="mountain-line" d="M 243,367 L 262,372 L 282,377" />
+              <path class="mountain-hit" d="M 243,367 L 262,372 L 282,377" />
+            </g>
+            <g class="mountain" data-mountain="ouachita" role="button" tabindex="0" aria-label="Ouachita Mountains">
+              <path class="mountain-line" d="M 507,521 L 528,518 L 543,514 L 559,509" />
+              <path class="mountain-hit" d="M 507,521 L 528,518 L 543,514 L 559,509" />
+            </g>
+            <g class="mountain" data-mountain="adirondack" role="button" tabindex="0" aria-label="Adirondack Mountains">
+              <path class="mountain-line" d="M 808,271 L 813,281 L 818,288" />
+              <path class="mountain-hit" d="M 808,271 L 813,281 L 818,288" />
+            </g>
+            <g class="mountain" data-mountain="alaska" role="button" tabindex="0" aria-label="Alaska Range">
+              <path class="mountain-line" d="M 102,674 L 119,670 L 137,661 L 156,650 L 175,641" />
+              <path class="mountain-hit" d="M 102,674 L 119,670 L 137,661 L 156,650 L 175,641" />
+            </g>
+            <g class="mountain" data-mountain="brooks" role="button" tabindex="0" aria-label="Brooks Range">
+              <path class="mountain-line" d="M 102,623 L 120,618 L 141,619 L 162,612" />
+              <path class="mountain-hit" d="M 102,623 L 120,618 L 141,619 L 162,612" />
+            </g>
+            <g class="mountain" data-mountain="koolau" role="button" tabindex="0" aria-label="Koʻolau Range">
+              <path class="mountain-line" d="M 288,658 L 291,662 L 294,664" />
+              <path class="mountain-hit mountain-hit--island" d="M 288,658 L 291,662 L 294,664" />
+            </g>
           </g>
         </svg>
       </section>

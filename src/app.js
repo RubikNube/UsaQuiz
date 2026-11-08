@@ -77,9 +77,29 @@ const RIVERS = [
   { code: "mobile", name: "Mobile River", lengthMiles: 774, namedLengthMiles: 45 },
 ];
 
+const MOUNTAINS = [
+  { code: "rocky", name: "Rocky Mountains", region: "Western US", peak: "Mount Elbert", peakFeet: 14433 },
+  { code: "appalachian", name: "Appalachian Mountains", region: "Eastern US", peak: "Mount Mitchell", peakFeet: 6684 },
+  { code: "sierra-nevada", name: "Sierra Nevada", region: "California and Nevada", peak: "Mount Whitney", peakFeet: 14505 },
+  { code: "cascade", name: "Cascade Range", region: "Washington, Oregon, and northern California", peak: "Mount Rainier", peakFeet: 14410 },
+  { code: "olympic", name: "Olympic Mountains", region: "Olympic Peninsula, Washington", peak: "Mount Olympus", peakFeet: 7980 },
+  { code: "wasatch", name: "Wasatch Range", region: "Utah and southern Idaho", peak: "Mount Nebo", peakFeet: 11928 },
+  { code: "uinta", name: "Uinta Mountains", region: "Northeastern Utah", peak: "Kings Peak", peakFeet: 13528 },
+  { code: "ouachita", name: "Ouachita Mountains", region: "Arkansas and Oklahoma", peak: "Rich Mountain", peakFeet: 2681 },
+  { code: "adirondack", name: "Adirondack Mountains", region: "Northern New York", peak: "Mount Marcy", peakFeet: 5344 },
+  { code: "alaska", name: "Alaska Range", region: "South-central Alaska", peak: "Denali", peakFeet: 20310 },
+  { code: "brooks", name: "Brooks Range", region: "Northern Alaska", peak: "Mount Isto", peakFeet: 8975 },
+  { code: "koolau", name: "Koʻolau Range", region: "Eastern Oʻahu, Hawaiʻi", peak: "Kōnāhuanui", peakFeet: 3150 },
+];
+
 const els = {
   map: document.getElementById("usMap"),
   riversLayer: document.getElementById("riversLayer"),
+  mountainsLayer: document.getElementById("mountainsLayer"),
+  mountainInfo: document.getElementById("mountainInfo"),
+  mountainInfoName: document.getElementById("mountainInfoName"),
+  mountainInfoRegion: document.getElementById("mountainInfoRegion"),
+  mountainInfoPeak: document.getElementById("mountainInfoPeak"),
   riverInfo: document.getElementById("riverInfo"),
   riverInfoName: document.getElementById("riverInfoName"),
   riverInfoLength: document.getElementById("riverInfoLength"),
@@ -303,17 +323,18 @@ function updateQuizBanner(currentState) {
 
   const isQuiz = currentState === QuizState;
   const isRiver = currentState === RiverState;
+  const isMountain = currentState === MountainState;
   const isCapital = currentState === CapitalState;
 
   const show =
-    (isQuiz || isRiver || isCapital) && round > 0 && totalRounds > 0 && target;
+    (isQuiz || isRiver || isMountain || isCapital) && round > 0 && totalRounds > 0 && target;
   els.quizBanner.classList.toggle("hidden", !show);
 
   if (!show) return;
 
   const safeTotal = Number.isFinite(totalRounds) ? totalRounds : 0;
   let line = "";
-  if (isQuiz || isRiver) {
+  if (isQuiz || isRiver || isMountain) {
     line = `Round ${round}/${safeTotal}: Find ${target.name}`;
   } else if (isCapital) {
     // Show all capital options in the banner as clickable buttons
@@ -364,6 +385,12 @@ function resetRiverClasses() {
   });
 }
 
+function resetMountainClasses() {
+  els.mountainsLayer?.querySelectorAll(".mountain").forEach((el) => {
+    el.classList.remove("correct", "wrong", "learned");
+  });
+}
+
 function nearestRiverAt(clientX, clientY) {
   let nearest = null;
   let shortestDistance = Infinity;
@@ -385,6 +412,40 @@ function nearestRiverAt(clientX, clientY) {
     }
   });
   return nearest;
+}
+
+function nearestMountainAt(clientX, clientY) {
+  let nearest = null;
+  let shortestDistance = Infinity;
+  els.mountainsLayer?.querySelectorAll(".mountain").forEach((mountain) => {
+    const path = mountain.querySelector(".mountain-line");
+    const matrix = path?.getScreenCTM();
+    if (!matrix) return;
+    const length = path.getTotalLength();
+    const steps = Math.max(1, Math.ceil(length / 3));
+    for (let i = 0; i <= steps; i += 1) {
+      const point = path.getPointAtLength((length * i) / steps);
+      const x = point.x * matrix.a + point.y * matrix.c + matrix.e;
+      const y = point.x * matrix.b + point.y * matrix.d + matrix.f;
+      const distance = (x - clientX) ** 2 + (y - clientY) ** 2;
+      if (distance < shortestDistance) {
+        shortestDistance = distance;
+        nearest = mountain;
+      }
+    }
+  });
+  return nearest;
+}
+
+function hideMountainInfo() {
+  els.mountainInfo?.classList.add("hidden");
+  if (els.mountainInfoName) els.mountainInfoName.textContent = "";
+  if (els.mountainInfoRegion) els.mountainInfoRegion.textContent = "";
+  if (els.mountainInfoPeak) els.mountainInfoPeak.textContent = "";
+}
+
+function formatMountainElevation(feet) {
+  return `${feet.toLocaleString("en-US")} ft (${Math.round(feet * 0.3048).toLocaleString("en-US")} m)`;
 }
 
 function hideRiverInfo() {
@@ -419,15 +480,15 @@ function shuffle(array) {
 
 function updateRoundCountOptions(mode) {
   if (!els.roundCount) return;
-  const isRiver = mode === "river";
+  const availableCount = mode === "river" ? RIVERS.length : mode === "mountain" ? MOUNTAINS.length : Infinity;
   const options = Array.from(els.roundCount.options);
   const selectedCount = Number.parseInt(els.roundCount.value, 10);
   for (const option of options) {
-    const unavailable = isRiver && Number(option.value) > RIVERS.length;
+    const unavailable = Number(option.value) > availableCount;
     option.hidden = unavailable;
     option.disabled = unavailable;
   }
-  if (isRiver && selectedCount > RIVERS.length) {
+  if (selectedCount > availableCount) {
     const largestAvailable = options
       .filter((option) => !option.disabled)
       .at(-1);
@@ -448,6 +509,7 @@ class StateMachine {
     updateRoundCountOptions(name);
     if (this.current && this.current.enter) this.current.enter();
     els.riversLayer?.classList.toggle("hidden", name !== "river");
+    els.mountainsLayer?.classList.toggle("hidden", name !== "mountain");
   }
   handle(event, ...args) {
     if (this.current && this.current[event]) {
@@ -467,6 +529,7 @@ let remaining = [];
 let capitalOptions = [];
 let capitalAnswered = false;
 let riverTurn = 0;
+let mountainTurn = 0;
 
 // --- State definitions ---
 
@@ -747,6 +810,148 @@ const RiverState = {
       const answeredTurn = riverTurn;
       window.setTimeout(() => {
         if (stateMachine.current !== RiverState || riverTurn !== answeredTurn)
+          return;
+        if (inRound || !target) return;
+        this.next();
+      }, 1500);
+    }
+  },
+};
+
+const MountainState = {
+  enter() {
+    mountainTurn += 1;
+    resetStateClasses();
+    resetMountainClasses();
+    hideMountainInfo();
+    hideToast();
+    hideQuizMessage();
+    score = 0;
+    round = 0;
+    inRound = false;
+    target = null;
+    remaining = [];
+    setNextEnabled(false);
+    updateQuizBanner(this);
+    setCapitalUIVisible(false);
+    setLearnUIVisible(false);
+    setFlagQuizUIVisible(false);
+    setQuizUIVisible(true);
+    removeLearnFlagsToggle();
+    els.learnFlagWrap?.classList.add("hidden");
+    els.learnBannerFlagWrap?.classList.add("hidden");
+    els.endScreen.classList.add("hidden");
+    els.score.textContent = "0";
+    totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
+    if (!Number.isFinite(totalRounds) || totalRounds <= 0)
+      totalRounds = DEFAULT_TOTAL_ROUNDS;
+    totalRounds = Math.min(totalRounds, MOUNTAINS.length);
+    els.totalRounds.textContent = String(totalRounds);
+    els.round.textContent = "1";
+    els.targetState.textContent = "—";
+    setHint("Click a mountain range to see its location and a notable summit, or press Start.");
+    els.startBtn.disabled = false;
+    els.restartBtn.disabled = false;
+    if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = false;
+  },
+  exit() {
+    mountainTurn += 1;
+    hideMountainInfo();
+    resetMountainClasses();
+  },
+  start() {
+    mountainTurn += 1;
+    resetMountainClasses();
+    hideMountainInfo();
+    hideQuizMessage();
+    score = 0;
+    round = 0;
+    inRound = false;
+    target = null;
+    const available = MOUNTAINS.filter((mountain) =>
+      els.mountainsLayer?.querySelector(`[data-mountain="${mountain.code}"]`),
+    );
+    totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
+    if (!Number.isFinite(totalRounds) || totalRounds <= 0)
+      totalRounds = DEFAULT_TOTAL_ROUNDS;
+    totalRounds = Math.min(totalRounds, available.length);
+    els.totalRounds.textContent = String(totalRounds);
+    els.score.textContent = "0";
+    els.round.textContent = "1";
+    els.endScreen.classList.add("hidden");
+    setNextEnabled(false);
+    remaining = shuffle([...available]);
+    if (remaining.length === 0) {
+      setHint("No clickable mountain ranges found in the SVG.", "bad");
+      return;
+    }
+    els.startBtn.disabled = true;
+    this.next();
+  },
+  next() {
+    mountainTurn += 1;
+    resetMountainClasses();
+    hideQuizMessage();
+    if (round >= totalRounds || remaining.length === 0) {
+      this.end();
+      return;
+    }
+    round += 1;
+    inRound = true;
+    target = remaining.pop();
+    els.round.textContent = String(round);
+    els.targetState.textContent = target.name;
+    setNextEnabled(false);
+    setHint("Click the correct mountain range on the map.");
+    updateQuizBanner(this);
+  },
+  end() {
+    inRound = false;
+    target = null;
+    els.targetState.textContent = "—";
+    setNextEnabled(false);
+    els.startBtn.disabled = false;
+    els.finalScore.textContent = String(score);
+    els.endScreen.classList.remove("hidden");
+    setHint("Game finished. Click a range to learn about it, or Restart.");
+    updateQuizBanner(this);
+  },
+  handleMountainClick(el) {
+    const clickedCode = el.getAttribute("data-mountain");
+    if (!target) {
+      const mountain = MOUNTAINS.find((item) => item.code === clickedCode);
+      if (!mountain) return;
+      resetMountainClasses();
+      el.classList.add("learned");
+      els.mountainInfoName.textContent = mountain.name;
+      els.mountainInfoRegion.textContent = `Location: ${mountain.region}`;
+      els.mountainInfoPeak.textContent = `Notable summit: ${mountain.peak} — approx. ${formatMountainElevation(mountain.peakFeet)}`;
+      els.mountainInfo.classList.remove("hidden");
+      return;
+    }
+    if (!inRound) return;
+    const isCorrect = clickedCode === target.code;
+    inRound = false;
+    if (isCorrect) {
+      score += 1;
+      els.score.textContent = String(score);
+      el.classList.add("correct");
+      setHint("Correct!", "good");
+      showQuizMessage("Correct!", "good");
+    } else {
+      el.classList.add("wrong");
+      els.mountainsLayer
+        ?.querySelector(`[data-mountain="${target.code}"]`)
+        ?.classList.add("correct");
+      const clickedName = MOUNTAINS.find((item) => item.code === clickedCode)?.name;
+      setHint(`Wrong. That was ${clickedName}.`, "bad");
+      showQuizMessage(`Wrong, that was ${clickedName}.`, "bad");
+    }
+    setNextEnabled(true);
+    if (isCorrect && els.autoNext?.checked) {
+      const answeredTurn = mountainTurn;
+      window.setTimeout(() => {
+        if (stateMachine.current !== MountainState || mountainTurn !== answeredTurn)
           return;
         if (inRound || !target) return;
         this.next();
@@ -1148,6 +1353,7 @@ const stateMachine = new StateMachine(
   {
     quiz: QuizState,
     river: RiverState,
+    mountain: MountainState,
     capital: CapitalState,
     learn: LearnState,
     flag: FlagState,
@@ -1189,6 +1395,17 @@ els.map.addEventListener("click", (e) => {
     }
     return;
   }
+  if (stateMachine.current === MountainState) {
+    const mountainEl = el.closest(".mountain");
+    if (mountainEl) {
+      const selected =
+        e.clientX || e.clientY
+          ? nearestMountainAt(e.clientX, e.clientY)
+          : mountainEl;
+      stateMachine.handle("handleMountainClick", selected ?? mountainEl);
+    }
+    return;
+  }
   if (!(el instanceof SVGPathElement)) return;
   if (!el.classList.contains("state")) return;
   if (stateMachine.current === QuizState)
@@ -1204,6 +1421,15 @@ els.riversLayer?.addEventListener("keydown", (e) => {
   if (!riverEl) return;
   e.preventDefault();
   stateMachine.handle("handleRiverClick", riverEl);
+});
+
+els.mountainsLayer?.addEventListener("keydown", (e) => {
+  if (stateMachine.current !== MountainState) return;
+  if (e.key !== "Enter" && e.key !== " ") return;
+  const mountainEl = e.target.closest(".mountain");
+  if (!mountainEl) return;
+  e.preventDefault();
+  stateMachine.handle("handleMountainClick", mountainEl);
 });
 
 // Capital option click handler

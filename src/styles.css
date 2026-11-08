@@ -712,6 +712,48 @@ button:disabled {
   stroke-width: 6;
 }
 
+.mountain-line,
+.mountain-hit {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.mountain-line {
+  stroke: #e7bd75;
+  stroke-width: 5;
+  pointer-events: none;
+}
+
+.mountain-hit {
+  stroke: transparent;
+  stroke-width: 20;
+  pointer-events: stroke;
+  cursor: pointer;
+}
+
+.mountain-hit--island {
+  stroke-width: 24;
+}
+
+.mountain:hover .mountain-line,
+.mountain:focus-visible .mountain-line,
+.mountain.learned .mountain-line {
+  stroke: #fff0c9;
+  stroke-width: 7;
+}
+
+.mountain.correct .mountain-line {
+  stroke: var(--good);
+  stroke-width: 8;
+}
+
+.mountain.wrong .mountain-line {
+  stroke: var(--bad);
+  stroke-width: 8;
+}
+
 .riverInfo {
   display: flex;
   flex-direction: column;

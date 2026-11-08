@@ -9,6 +9,7 @@ https://rubiknube.github.io/UsaQuiz/
 - [x] Find the state on a USA map (Quiz + Learn mode)
 - [x] Select the state capital
 - [x] Guess the state flag
+- [x] Find major US rivers on the map
 
 ## How to Play
 
@@ -22,6 +23,7 @@ https://rubiknube.github.io/UsaQuiz/
        must press **Next** to continue.
    - **Select the Capital**: press **Start**, then for each round, the name of a state is shown and you must pick the correct capital from the list of options. The options appear both below and in the top banner as clickable buttons. After answering, the correct capital is highlighted. Use **Next** to advance, or **Restart** to start over.
    - **Flag Quiz**: press **Start**, then for each round, the name of a state is shown in the top banner and you must pick the correct flag from a set of options. The map is hidden in this mode to maximize flag size. Use the **Flag size** dropdown to choose how large the flags appear (Auto, S, M, L, XL, XXL). The UI updates instantly when you change the flag size. After answering, a notification appears for correct or wrong answers. Use **Next** to advance, or **Restart** to start over.
+   - **River Quiz**: before starting, click any river to see its name and approximate length in a panel that stays visible while scrolling. Press **Start**, then click the named river on the map. The quiz includes 20 major river systems and limits the selected question count to the number available. A wrong answer highlights both the clicked and correct rivers. **Auto next** advances after a correct answer; otherwise use **Next**. River information is available again after the game ends.
    - **Learn**: click any state to see its name.
 3. Use **Restart** to start a new game.
 
@@ -38,3 +40,13 @@ The state flag images are downloaded from Wikimedia Commons.
 Attribution and license details per flag: [`assets/flags/ATTRIBUTION.md`](assets/flags/ATTRIBUTION.md)
 
 Source collection: https://commons.wikimedia.org/wiki/Flags_of_the_U.S._states
+
+### Rivers
+
+The river lines are simplified from Natural Earth's public domain 1:10m rivers and North America supplement, then projected onto the game's stylized state map. Short gaps at lakes and reservoirs are joined where needed. The map itself is stylized, so the overlay is for learning rather than precise navigation. Source: https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-rivers-lake-centerlines/
+
+The Rio Grande along Texas and the St. Lawrence along northern New York use the corresponding state border paths to keep those shared boundaries aligned on the stylized map.
+
+The 20 entries follow the [USGS length ranking](https://pubs.usgs.gov/of/1987/ofr87-242/) for river systems associated with the United States. That ranking measures the route from a distant headwater to the mouth, even when the headwater stream has another name. The learning panel labels this as **river system** length. When the named river has a substantially different length, the panel shows that length separately (for example, the [Mobile River is about 45 miles](https://www.usgs.gov/water-science-school/science/rivers-world-worlds-longest-rivers), while its ranked system is 774 miles). Named-river figures also use [USACE Atchafalaya](https://www.mvn.usace.army.mil/Portals/56/Draft_South_Central_Coast_Louisiana_Main_Report.pdf), [USGS Ohio](https://pubs.usgs.gov/wri/1991/4050/report.pdf), [USGS Tennessee](https://pubs.usgs.gov/sir/2020/5138/sir20205138.pdf), [USGS Brazos](https://www.usgs.gov/news/science-snippet/earthview-rain-swollen-brazos-river-floods-suburban-houston), [Nebraska Platte](https://walk2unlock.ne.gov/markers/central-platte-nrd-watersheds/), and [New York St. Lawrence](https://dec.ny.gov/sites/default/files/2024-01/lkontditlteachpacket.pdf). The simplified map lines show the river's US course rather than every headwater branch.
+
+The named Missouri River figure uses [USGS river mileage from its headwaters near Three Forks](https://www.usgs.gov/publications/travel-times-streamflow-velocities-and-dispersion-rates-missouri-river-upstream-canyon).

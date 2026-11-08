@@ -54,8 +54,36 @@ const STATES = [
   { code: "WY", name: "Wyoming", capital: "Cheyenne" },
 ];
 
+const RIVERS = [
+  { code: "missouri", name: "Missouri River", lengthMiles: 2540, namedLengthMiles: 2319 },
+  { code: "mississippi", name: "Mississippi River", lengthMiles: 2340 },
+  { code: "yukon", name: "Yukon River", lengthMiles: 1980 },
+  { code: "rio-grande", name: "Rio Grande", lengthMiles: 1900 },
+  { code: "st-lawrence", name: "St. Lawrence River", lengthMiles: 1900, namedLengthMiles: 744 },
+  { code: "arkansas", name: "Arkansas River", lengthMiles: 1469 },
+  { code: "colorado", name: "Colorado River", lengthMiles: 1450 },
+  { code: "atchafalaya", name: "Atchafalaya River", lengthMiles: 1420, namedLengthMiles: 137 },
+  { code: "ohio", name: "Ohio River", lengthMiles: 1310, namedLengthMiles: 981 },
+  { code: "red", name: "Red River", lengthMiles: 1290 },
+  { code: "brazos", name: "Brazos River", lengthMiles: 1280, namedLengthMiles: 840 },
+  { code: "columbia", name: "Columbia River", lengthMiles: 1249 },
+  { code: "snake", name: "Snake River", lengthMiles: 1040 },
+  { code: "platte", name: "Platte River", lengthMiles: 990, namedLengthMiles: 310 },
+  { code: "pecos", name: "Pecos River", lengthMiles: 926 },
+  { code: "canadian", name: "Canadian River", lengthMiles: 906 },
+  { code: "tennessee", name: "Tennessee River", lengthMiles: 886, namedLengthMiles: 652 },
+  { code: "colorado-texas", name: "Colorado River of Texas", lengthMiles: 862 },
+  { code: "north-canadian", name: "North Canadian River", lengthMiles: 800 },
+  { code: "mobile", name: "Mobile River", lengthMiles: 774, namedLengthMiles: 45 },
+];
+
 const els = {
   map: document.getElementById("usMap"),
+  riversLayer: document.getElementById("riversLayer"),
+  riverInfo: document.getElementById("riverInfo"),
+  riverInfoName: document.getElementById("riverInfoName"),
+  riverInfoLength: document.getElementById("riverInfoLength"),
+  riverInfoSystemLength: document.getElementById("riverInfoSystemLength"),
   toast: document.getElementById("toast"),
   quizBanner: document.getElementById("quizBanner"),
   quizBannerLine: document.getElementById("quizBannerLine"),
@@ -274,16 +302,18 @@ function updateQuizBanner(currentState) {
   if (!els.quizBanner || !els.quizBannerLine) return;
 
   const isQuiz = currentState === QuizState;
+  const isRiver = currentState === RiverState;
   const isCapital = currentState === CapitalState;
 
-  const show = (isQuiz || isCapital) && round > 0 && totalRounds > 0 && target;
+  const show =
+    (isQuiz || isRiver || isCapital) && round > 0 && totalRounds > 0 && target;
   els.quizBanner.classList.toggle("hidden", !show);
 
   if (!show) return;
 
   const safeTotal = Number.isFinite(totalRounds) ? totalRounds : 0;
   let line = "";
-  if (isQuiz) {
+  if (isQuiz || isRiver) {
     line = `Round ${round}/${safeTotal}: Find ${target.name}`;
   } else if (isCapital) {
     // Show all capital options in the banner as clickable buttons
@@ -328,6 +358,49 @@ function resetStateClasses() {
   });
 }
 
+function resetRiverClasses() {
+  els.riversLayer?.querySelectorAll(".river").forEach((el) => {
+    el.classList.remove("correct", "wrong", "learned");
+  });
+}
+
+function nearestRiverAt(clientX, clientY) {
+  let nearest = null;
+  let shortestDistance = Infinity;
+  els.riversLayer?.querySelectorAll(".river").forEach((river) => {
+    const path = river.querySelector(".river-line");
+    const matrix = path?.getScreenCTM();
+    if (!matrix) return;
+    const length = path.getTotalLength();
+    const steps = Math.max(1, Math.ceil(length / 3));
+    for (let i = 0; i <= steps; i += 1) {
+      const point = path.getPointAtLength((length * i) / steps);
+      const x = point.x * matrix.a + point.y * matrix.c + matrix.e;
+      const y = point.x * matrix.b + point.y * matrix.d + matrix.f;
+      const distance = (x - clientX) ** 2 + (y - clientY) ** 2;
+      if (distance < shortestDistance) {
+        shortestDistance = distance;
+        nearest = river;
+      }
+    }
+  });
+  return nearest;
+}
+
+function hideRiverInfo() {
+  els.riverInfo?.classList.add("hidden");
+  if (els.riverInfoName) els.riverInfoName.textContent = "";
+  if (els.riverInfoLength) els.riverInfoLength.textContent = "";
+  if (els.riverInfoSystemLength) {
+    els.riverInfoSystemLength.textContent = "";
+    els.riverInfoSystemLength.classList.add("hidden");
+  }
+}
+
+function formatRiverLength(miles) {
+  return `${miles.toLocaleString("en-US")} mi (${Math.round(miles * 1.609344).toLocaleString("en-US")} km)`;
+}
+
 function setHint(text, kind = "neutral") {
   if (!els.hint) return;
   els.hint.textContent = text;
@@ -355,6 +428,7 @@ class StateMachine {
     if (this.current && this.current.exit) this.current.exit();
     this.current = this.states[name];
     if (this.current && this.current.enter) this.current.enter();
+    els.riversLayer?.classList.toggle("hidden", name !== "river");
   }
   handle(event, ...args) {
     if (this.current && this.current[event]) {
@@ -373,6 +447,7 @@ let inRound = false;
 let remaining = [];
 let capitalOptions = [];
 let capitalAnswered = false;
+let riverTurn = 0;
 
 // --- State definitions ---
 
@@ -506,6 +581,156 @@ const QuizState = {
         if (inRound) return;
         if (!target) return;
         stateMachine.handle("next");
+      }, 1500);
+    }
+  },
+};
+
+const RiverState = {
+  enter() {
+    riverTurn += 1;
+    resetStateClasses();
+    resetRiverClasses();
+    hideRiverInfo();
+    hideToast();
+    hideQuizMessage();
+    score = 0;
+    inRound = false;
+    target = null;
+    remaining = [];
+    round = 0;
+    setNextEnabled(false);
+    updateQuizBanner(this);
+    setCapitalUIVisible(false);
+    setLearnUIVisible(false);
+    setFlagQuizUIVisible(false);
+    setQuizUIVisible(true);
+    removeLearnFlagsToggle();
+    els.learnFlagWrap?.classList.add("hidden");
+    els.learnBannerFlagWrap?.classList.add("hidden");
+    els.endScreen.classList.add("hidden");
+    els.score.textContent = "0";
+    totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
+    if (!Number.isFinite(totalRounds) || totalRounds <= 0)
+      totalRounds = DEFAULT_TOTAL_ROUNDS;
+    totalRounds = Math.min(totalRounds, RIVERS.length);
+    els.totalRounds.textContent = String(totalRounds);
+    els.round.textContent = "1";
+    els.targetState.textContent = "—";
+    setHint("Click a river to see its name and length, or press Start.");
+    els.startBtn.disabled = false;
+    els.restartBtn.disabled = false;
+    if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = false;
+  },
+  exit() {
+    hideRiverInfo();
+    resetRiverClasses();
+  },
+  start() {
+    riverTurn += 1;
+    resetRiverClasses();
+    hideRiverInfo();
+    hideQuizMessage();
+    score = 0;
+    round = 0;
+    inRound = false;
+    target = null;
+    const available = RIVERS.filter((river) =>
+      els.riversLayer?.querySelector(`[data-river="${river.code}"]`),
+    );
+    totalRounds = Number.parseInt(els.roundCount?.value ?? "", 10);
+    if (!Number.isFinite(totalRounds) || totalRounds <= 0)
+      totalRounds = DEFAULT_TOTAL_ROUNDS;
+    totalRounds = Math.min(totalRounds, available.length);
+    els.totalRounds.textContent = String(totalRounds);
+    els.score.textContent = "0";
+    els.round.textContent = "1";
+    els.endScreen.classList.add("hidden");
+    setNextEnabled(false);
+    remaining = shuffle([...available]);
+    if (remaining.length === 0) {
+      setHint("No clickable rivers found in the SVG.", "bad");
+      return;
+    }
+    els.startBtn.disabled = true;
+    this.next();
+  },
+  next() {
+    riverTurn += 1;
+    resetRiverClasses();
+    hideQuizMessage();
+    if (round >= totalRounds || remaining.length === 0) {
+      this.end();
+      return;
+    }
+    round += 1;
+    inRound = true;
+    target = remaining.pop();
+    els.round.textContent = String(round);
+    els.targetState.textContent = target.name;
+    setNextEnabled(false);
+    setHint("Click the correct river on the map.");
+    updateQuizBanner(this);
+  },
+  end() {
+    inRound = false;
+    target = null;
+    els.targetState.textContent = "—";
+    setNextEnabled(false);
+    els.startBtn.disabled = false;
+    els.finalScore.textContent = String(score);
+    els.endScreen.classList.remove("hidden");
+    setHint("Game finished. Click a river to learn its length, or Restart.");
+    updateQuizBanner(this);
+  },
+  handleRiverClick(el) {
+    if (!target) {
+      const river = RIVERS.find(
+        (item) => item.code === el.getAttribute("data-river"),
+      );
+      if (!river) return;
+      resetRiverClasses();
+      el.classList.add("learned");
+      els.riverInfoName.textContent = river.name;
+      if (river.namedLengthMiles) {
+        els.riverInfoLength.textContent = `Named river: approx. ${formatRiverLength(river.namedLengthMiles)}`;
+        els.riverInfoSystemLength.textContent = `River system: approx. ${formatRiverLength(river.lengthMiles)}`;
+        els.riverInfoSystemLength.classList.remove("hidden");
+      } else {
+        els.riverInfoLength.textContent = `Source-to-mouth system: approx. ${formatRiverLength(river.lengthMiles)}`;
+        els.riverInfoSystemLength.textContent = "";
+        els.riverInfoSystemLength.classList.add("hidden");
+      }
+      els.riverInfo.classList.remove("hidden");
+      return;
+    }
+    if (!inRound || !target) return;
+    const clickedCode = el.getAttribute("data-river");
+    const isCorrect = clickedCode === target.code;
+    inRound = false;
+    if (isCorrect) {
+      score += 1;
+      els.score.textContent = String(score);
+      el.classList.add("correct");
+      setHint("Correct!", "good");
+      showQuizMessage("Correct!", "good");
+    } else {
+      el.classList.add("wrong");
+      els.riversLayer
+        ?.querySelector(`[data-river="${target.code}"]`)
+        ?.classList.add("correct");
+      const clickedName = RIVERS.find((river) => river.code === clickedCode)?.name;
+      setHint(`Wrong. That was ${clickedName}.`, "bad");
+      showQuizMessage(`Wrong, that was ${clickedName}.`, "bad");
+    }
+    setNextEnabled(true);
+    if (isCorrect && els.autoNext?.checked) {
+      const answeredTurn = riverTurn;
+      window.setTimeout(() => {
+        if (stateMachine.current !== RiverState || riverTurn !== answeredTurn)
+          return;
+        if (inRound || !target) return;
+        this.next();
       }, 1500);
     }
   },
@@ -903,6 +1128,7 @@ const FlagState = {
 const stateMachine = new StateMachine(
   {
     quiz: QuizState,
+    river: RiverState,
     capital: CapitalState,
     learn: LearnState,
     flag: FlagState,
@@ -932,12 +1158,33 @@ els.bannerRestartBtn?.addEventListener("click", () => {
 // Map click handler delegates to state
 els.map.addEventListener("click", (e) => {
   const el = e.target;
+  if (!(el instanceof SVGElement)) return;
+  if (stateMachine.current === RiverState) {
+    const riverEl = el.closest(".river");
+    if (riverEl) {
+      const selected =
+        e.clientX || e.clientY
+          ? nearestRiverAt(e.clientX, e.clientY)
+          : riverEl;
+      stateMachine.handle("handleRiverClick", selected ?? riverEl);
+    }
+    return;
+  }
   if (!(el instanceof SVGPathElement)) return;
   if (!el.classList.contains("state")) return;
   if (stateMachine.current === QuizState)
     stateMachine.handle("handleMapClick", el);
   else if (stateMachine.current === LearnState)
     stateMachine.handle("handleMapClick", el);
+});
+
+els.riversLayer?.addEventListener("keydown", (e) => {
+  if (stateMachine.current !== RiverState) return;
+  if (e.key !== "Enter" && e.key !== " ") return;
+  const riverEl = e.target.closest(".river");
+  if (!riverEl) return;
+  e.preventDefault();
+  stateMachine.handle("handleRiverClick", riverEl);
 });
 
 // Capital option click handler

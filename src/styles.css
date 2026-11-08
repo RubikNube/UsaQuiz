@@ -642,6 +642,16 @@ button:disabled {
   fill: #0e1730;
 }
 
+.mapWrap,
+#usMap {
+  width: 100%;
+}
+
+#usMap {
+  height: auto;
+  display: block;
+}
+
 .state {
   fill: var(--state);
   stroke: var(--stroke);
@@ -658,6 +668,68 @@ button:disabled {
 }
 .state.wrong {
   fill: var(--bad) !important;
+}
+
+.river-line,
+.river-hit {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.river-line {
+  stroke: #62c9f7;
+  stroke-width: 3.5;
+  pointer-events: none;
+}
+
+.river-hit {
+  stroke: transparent;
+  stroke-width: 22;
+  pointer-events: stroke;
+  cursor: pointer;
+}
+
+.river:hover .river-line,
+.river:focus-visible .river-line {
+  stroke: #d1f2ff;
+  stroke-width: 5;
+}
+
+.river.correct .river-line {
+  stroke: var(--good);
+  stroke-width: 6;
+}
+
+.river.wrong .river-line {
+  stroke: var(--bad);
+  stroke-width: 6;
+}
+
+.river.learned .river-line {
+  stroke: #d1f2ff;
+  stroke-width: 6;
+}
+
+.riverInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: min(92vw, 440px);
+  padding: 10px 12px;
+  border: 1px solid rgba(98, 201, 247, 0.3);
+  background: rgba(17, 38, 57, 0.95);
+  pointer-events: none;
+}
+
+.riverInfo strong {
+  color: #d1f2ff;
+}
+
+.riverInfo span {
+  font-weight: 400;
 }
 
 .end {

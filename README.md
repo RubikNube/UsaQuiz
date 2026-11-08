@@ -33,6 +33,12 @@ https://rubiknube.github.io/UsaQuiz/
 
 File:Blank US Electoral Map Revised.svg. (2023, November 26). Wikimedia Commons. Retrieved February 11, 2026, from https://commons.wikimedia.org/w/index.php?title=File:Blank_US_Electoral_Map_Revised.svg&oldid=825333292.
 
+### Capital city markers
+
+The 50 city-center coordinates in [`scripts/capital-locations.json`](scripts/capital-locations.json) come from [USGS GNIS Populated Place points](https://www.usgs.gov/us-board-on-geographic-names/what-geographic-names-information-system-gnis), accessed through the [GNIS-based USA Populated Places layer](https://services.arcgis.com/o6oETlrWetREI1A2/ArcGIS/rest/services/FeatureLayerForWebGIS/FeatureServer/2). Capital names and states were checked against the [2026 Census Places Gazetteer](https://www.census.gov/geographies/reference-files/2026/geo/gazetter-file.html). GNIS points locate the city center rather than the center of its municipal boundary; this matters especially for large cities such as Juneau and Phoenix.
+
+[`scripts/position-capitals.py`](scripts/position-capitals.py) fits an Albers projection to state-border intersections on this stylized SVG, then writes the projected points to the map. Alaska and Hawaii use their separate inset positions; Trenton is moved slightly inside New Jersey's simplified western border. Run `python3 scripts/position-capitals.py --write` after changing source coordinates, or `python3 scripts/position-capitals.py --check` to verify the committed marker positions. The map is intended for learning, so the dots are approximate at the scale of its simplified state shapes.
+
 ### Flags
 
 The state flag images are downloaded from Wikimedia Commons.

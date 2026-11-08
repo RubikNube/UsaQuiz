@@ -416,6 +416,24 @@ function shuffle(array) {
   }
   return array;
 }
+
+function updateRoundCountOptions(mode) {
+  if (!els.roundCount) return;
+  const isRiver = mode === "river";
+  const options = Array.from(els.roundCount.options);
+  const selectedCount = Number.parseInt(els.roundCount.value, 10);
+  for (const option of options) {
+    const unavailable = isRiver && Number(option.value) > RIVERS.length;
+    option.hidden = unavailable;
+    option.disabled = unavailable;
+  }
+  if (isRiver && selectedCount > RIVERS.length) {
+    const largestAvailable = options
+      .filter((option) => !option.disabled)
+      .at(-1);
+    if (largestAvailable) els.roundCount.value = largestAvailable.value;
+  }
+}
 // State Machine for Quiz Modes
 
 class StateMachine {
@@ -427,6 +445,7 @@ class StateMachine {
   setState(name) {
     if (this.current && this.current.exit) this.current.exit();
     this.current = this.states[name];
+    updateRoundCountOptions(name);
     if (this.current && this.current.enter) this.current.enter();
     els.riversLayer?.classList.toggle("hidden", name !== "river");
   }

@@ -1,0 +1,382 @@
+[
+  {
+    "slug": "worthington-glacier",
+    "title": "Worthington Glacier",
+    "file": "Worthington_glacier.JPG",
+    "coordinates": [
+      {
+        "lat": 61.17027778,
+        "lon": -145.76333333,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Worthington_glacier.JPG/500px-Worthington_glacier.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Worthington_glacier.JPG",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:HylgeriaK\" title=\"User:HylgeriaK\">HylgeriaK</a>",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "path": "assets/natural-landmarks/worthington-glacier.jpg"
+  },
+  {
+    "slug": "barringer-crater",
+    "title": "Meteor Crater",
+    "file": "Meteor_Crater_-_Arizona.jpg",
+    "coordinates": [
+      {
+        "lat": 35.02805556,
+        "lon": -111.02333333,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Meteor_Crater_-_Arizona.jpg/500px-Meteor_Crater_-_Arizona.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Meteor_Crater_-_Arizona.jpg",
+    "artist": "National Map Seamless Server",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/natural-landmarks/barringer-crater.jpg"
+  },
+  {
+    "slug": "rancho-la-brea",
+    "title": "La Brea Tar Pits",
+    "file": "La Brea Tar Pits (laenulfean).jpg",
+    "coordinates": [
+      {
+        "lat": 34.0628,
+        "lon": -118.356,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/La_Brea_Tar_Pits_%28laenulfean%29.jpg/500px-La_Brea_Tar_Pits_%28laenulfean%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:La_Brea_Tar_Pits_(laenulfean).jpg",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/laenulfean/\">Carsten Tolkmit</a>",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "path": "assets/natural-landmarks/rancho-la-brea.jpg"
+  },
+  {
+    "slug": "garden-of-the-gods",
+    "title": "Garden of the Gods",
+    "file": "Garden_of_the_Gods_(6174065038).jpg",
+    "coordinates": [
+      {
+        "lat": 38.867769,
+        "lon": -104.8910877,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Garden_of_the_Gods_%286174065038%29.jpg/500px-Garden_of_the_Gods_%286174065038%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Garden_of_the_Gods_(6174065038).jpg",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/53986933@N00\">John Fowler</a> from Placitas, NM, USA",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "path": "assets/natural-landmarks/garden-of-the-gods.jpg"
+  },
+  {
+    "slug": "wakulla-springs",
+    "title": "Wakulla Springs",
+    "file": "WakullaSpgs_Jun03.jpg",
+    "coordinates": [
+      {
+        "lat": 30.23361111,
+        "lon": -84.30527778,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/WakullaSpgs_Jun03.jpg/500px-WakullaSpgs_Jun03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:WakullaSpgs_Jun03.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Tim_Ross\" title=\"User:Tim Ross\">Tim Ross</a>",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/natural-landmarks/wakulla-springs.jpg"
+  },
+  {
+    "slug": "okefenokee-swamp",
+    "title": "Okefenokee Swamp",
+    "file": "Aerial_view_of_wetlands_in_Okefenokee.jpg",
+    "coordinates": [
+      {
+        "lat": 30.61666667,
+        "lon": -82.31666667,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Aerial_view_of_wetlands_in_Okefenokee.jpg/500px-Aerial_view_of_wetlands_in_Okefenokee.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_wetlands_in_Okefenokee.jpg",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28112513\" class=\"extiw\" title=\"d:Q28112513\"><span title=\"American photographer with the United States Fish and Wildlife Service\">Ryan Hagerty</span></a></bdi>",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/natural-landmarks/okefenokee-swamp.jpg"
+  },
+  {
+    "slug": "diamond-head",
+    "title": "Diamond Head, Hawaii",
+    "file": "Diamond_Head_Hawaii_From_Round_Top_Rd.JPG",
+    "coordinates": [
+      {
+        "lat": 21.26194444,
+        "lon": -157.80555556,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Diamond_Head_Hawaii_From_Round_Top_Rd.JPG/500px-Diamond_Head_Hawaii_From_Round_Top_Rd.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Diamond_Head_Hawaii_From_Round_Top_Rd.JPG",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Mar1865&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Mar1865 (page does not exist)\">mar1865</a>",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "path": "assets/natural-landmarks/diamond-head.jpg"
+  },
+  {
+    "slug": "great-rift",
+    "title": "Craters of the Moon National Monument and Preserve",
+    "file": "CratersDrone1.jpg",
+    "coordinates": [
+      {
+        "lat": 43.46167,
+        "lon": -113.56271,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/CratersDrone1.jpg/500px-CratersDrone1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:CratersDrone1.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:BroMcjoe&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:BroMcjoe (page does not exist)\">BroMcjoe</a>",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/natural-landmarks/great-rift.jpg"
+  },
+  {
+    "slug": "monument-rocks",
+    "title": "Monument Rocks (Kansas)",
+    "file": "Monument_Rocks.jpg",
+    "coordinates": [
+      {
+        "lat": 38.79055556,
+        "lon": -100.7625,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Monument_Rocks.jpg/500px-Monument_Rocks.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Monument_Rocks.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wistar92&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wistar92 (page does not exist)\">Wistar92</a>",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "path": "assets/natural-landmarks/monument-rocks.jpg"
+  },
+  {
+    "slug": "red-river-gorge",
+    "title": "Red River Gorge",
+    "file": "View_of_Chimney_Top_Rock.JPG",
+    "coordinates": [
+      {
+        "lat": 37.83388889,
+        "lon": -83.60777778,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/View_of_Chimney_Top_Rock.JPG/500px-View_of_Chimney_Top_Rock.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:View_of_Chimney_Top_Rock.JPG",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Mrherbalwarrior\" class=\"extiw\" title=\"wikipedia:User:Mrherbalwarrior\">Mrherbalwarrior</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "path": "assets/natural-landmarks/red-river-gorge.jpg"
+  },
+  {
+    "slug": "mount-katahdin",
+    "title": "Katahdin",
+    "file": "Katahdin.jpg",
+    "coordinates": [
+      {
+        "lat": 45.90435447,
+        "lon": -68.92127431,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Katahdin.jpg/500px-Katahdin.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Katahdin.jpg",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Rubyk\" class=\"extiw\" title=\"wikipedia:User:Rubyk\">Rubyk</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/natural-landmarks/mount-katahdin.jpg"
+  },
+  {
+    "slug": "porcupine-mountains",
+    "title": "Porcupine Mountains",
+    "file": "Porcupine_Mountains_Michigan.jpg",
+    "coordinates": [
+      {
+        "lat": 46.75416667,
+        "lon": -89.79,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Porcupine_Mountains_Michigan.jpg/500px-Porcupine_Mountains_Michigan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Porcupine_Mountains_Michigan.jpg",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/Flickr\" class=\"extiw\" title=\"w:Flickr\">w:Flickr</a> user <a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/soundfromwayout/\">Erik Abderhalden</a>",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "path": "assets/natural-landmarks/porcupine-mountains.jpg"
+  },
+  {
+    "slug": "itasca-natural-area",
+    "title": "Itasca State Park",
+    "file": "Mississippi_River_at_Itasca.jpg",
+    "coordinates": [
+      {
+        "lat": 47.23972222,
+        "lon": -95.2075,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Mississippi_River_at_Itasca.jpg/500px-Mississippi_River_at_Itasca.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Mississippi_River_at_Itasca.jpg",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/8641421@N07\">Mark Evans</a> from Orange City, USA",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "path": "assets/natural-landmarks/itasca-natural-area.jpg"
+  },
+  {
+    "slug": "hell-creek",
+    "title": "Hell Creek Formation",
+    "file": "Hell_Creek.jpg",
+    "coordinates": [
+      {
+        "lat": 46.9,
+        "lon": -101.5,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Hell_Creek.jpg/500px-Hell_Creek.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Hell_Creek.jpg",
+    "artist": "Anky-man 16:28, 16 April 2007 (UTC)",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "path": "assets/natural-landmarks/hell-creek.jpg"
+  },
+  {
+    "slug": "ashfall-fossil-beds",
+    "title": "Ashfall Fossil Beds",
+    "file": "USA_ne_creighton_ashfallshp2.jpg",
+    "coordinates": [
+      {
+        "lat": 42.425,
+        "lon": -98.15861111,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/USA_ne_creighton_ashfallshp2.jpg/500px-USA_ne_creighton_ashfallshp2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:USA_ne_creighton_ashfallshp2.jpg",
+    "artist": "Mawhamba",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "path": "assets/natural-landmarks/ashfall-fossil-beds.jpg"
+  },
+  {
+    "slug": "valley-of-fire",
+    "title": "Valley of Fire State Park",
+    "file": "Valley_of_fire_State_Park.jpg",
+    "coordinates": [
+      {
+        "lat": 36.47222222,
+        "lon": -114.5375,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Valley_of_fire_State_Park.jpg/500px-Valley_of_fire_State_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Valley_of_fire_State_Park.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Cl%C3%A9ment_Bardot\" title=\"User:Clément Bardot\">Clément Bardot</a>",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "path": "assets/natural-landmarks/valley-of-fire.jpg"
+  },
+  {
+    "slug": "albany-pine-bush",
+    "title": "Albany Pine Bush",
+    "file": "Pines_in_the_Albany_Pine_Bush_Preserve.jpg",
+    "coordinates": [
+      {
+        "lat": 42.71833333,
+        "lon": -73.86444444,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Pines_in_the_Albany_Pine_Bush_Preserve.jpg/500px-Pines_in_the_Albany_Pine_Bush_Preserve.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Pines_in_the_Albany_Pine_Bush_Preserve.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Daniel_Case\" title=\"User:Daniel Case\">Daniel Case</a>",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "path": "assets/natural-landmarks/albany-pine-bush.jpg"
+  },
+  {
+    "slug": "newberry-crater",
+    "title": "Newberry National Volcanic Monument",
+    "file": "Lavabutte3.jpg",
+    "coordinates": [
+      {
+        "lat": 43.69416667,
+        "lon": -121.25194444,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Lavabutte3.jpg/500px-Lavabutte3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Lavabutte3.jpg",
+    "artist": "Q Myers, <a href=\"https://en.wikipedia.org/wiki/User:QDM\" class=\"extiw\" title=\"en:User:QDM\">en:User:QDM</a>",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/natural-landmarks/newberry-crater.jpg"
+  },
+  {
+    "slug": "enchanted-rock",
+    "title": "Enchanted Rock",
+    "file": "Aerial_View_of_Enchanted_Rock.jpg",
+    "coordinates": [
+      {
+        "lat": 30.5065789,
+        "lon": -98.8189305,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Aerial_View_of_Enchanted_Rock.jpg/500px-Aerial_View_of_Enchanted_Rock.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Aerial_View_of_Enchanted_Rock.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Jmbuytaert&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Jmbuytaert (page does not exist)\">Jmbuytaert</a>",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/natural-landmarks/enchanted-rock.jpg"
+  },
+  {
+    "slug": "mima-mounds",
+    "title": "Mima mounds",
+    "file": "MIMA_MOUNDS.jpg",
+    "coordinates": [
+      {
+        "lat": 46.89856,
+        "lon": -123.05048,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/MIMA_MOUNDS.jpg/500px-MIMA_MOUNDS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:MIMA_MOUNDS.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:KLOTZ\" title=\"User:KLOTZ\">JERRYE &amp; ROY KLOTZ MD</a>",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "path": "assets/natural-landmarks/mima-mounds.jpg"
+  }
+]

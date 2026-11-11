@@ -117,11 +117,37 @@ const LANDMARKS = [
   { code: "mount-vernon", name: "Mount Vernon", state: "Virginia", fact: "George Washington's Potomac plantation, where hundreds of enslaved people lived and worked.", lat: 38.7073, lon: -77.0865 },
 ];
 
+// Designations checked against the NPS National Natural Landmarks directory.
+// Coordinates mark approximate site centers on the stylized map.
+const NATURAL_LANDMARKS = [
+  { code: "worthington-glacier", name: "Worthington Glacier", state: "Alaska", fact: "A glacier in the Chugach Mountains that descends toward the Richardson Highway.", x: 158, y: 641 },
+  { code: "barringer-crater", name: "Barringer Meteor Crater", wikipediaTitle: "Meteor Crater", state: "Arizona", fact: "A remarkably well-preserved impact crater formed by a meteorite about 50,000 years ago.", lat: 35.0281, lon: -111.0233 },
+  { code: "rancho-la-brea", name: "Rancho La Brea", wikipediaTitle: "La Brea Tar Pits", state: "California", fact: "Asphalt seeps preserve fossils of Ice Age animals, including mammoths and saber-toothed cats.", lat: 34.0628, lon: -118.356 },
+  { code: "garden-of-the-gods", name: "Garden of the Gods", state: "Colorado", fact: "Eroded sandstone formations expose the region's long geologic history.", lat: 38.8678, lon: -104.8911 },
+  { code: "wakulla-springs", name: "Wakulla Springs", state: "Florida", fact: "A large freshwater spring fed by an extensive underground cave system.", lat: 30.2336, lon: -84.3053 },
+  { code: "okefenokee-swamp", name: "Okefenokee Swamp", state: "Georgia", fact: "A vast peat-filled wetland that supports distinctive swamp habitats and wildlife.", lat: 30.6167, lon: -82.3167 },
+  { code: "diamond-head", name: "Diamond Head", wikipediaTitle: "Diamond Head, Hawaii", state: "Hawaii", fact: "A volcanic tuff cone formed during a late stage of Oʻahu's volcanic activity.", x: 290, y: 662 },
+  { code: "great-rift", name: "Great Rift System", wikipediaTitle: "Craters of the Moon National Monument and Preserve", state: "Idaho", fact: "A long volcanic fracture zone marked by lava flows, cones, and fissures.", lat: 43.4617, lon: -113.5628 },
+  { code: "monument-rocks", name: "Monument Rocks Natural Area", wikipediaTitle: "Monument Rocks (Kansas)", state: "Kansas", fact: "Chalk formations preserve evidence of an ancient inland sea.", lat: 38.7906, lon: -100.7625 },
+  { code: "red-river-gorge", name: "Red River Gorge", state: "Kentucky", fact: "Sandstone cliffs, arches, and valleys were carved by the Red River and its tributaries.", lat: 37.8339, lon: -83.6078 },
+  { code: "mount-katahdin", name: "Mount Katahdin", wikipediaTitle: "Katahdin", state: "Maine", fact: "Maine's highest mountain has glacially sculpted cirques and alpine habitat.", lat: 45.9044, lon: -68.9213 },
+  { code: "porcupine-mountains", name: "Porcupine Mountain", wikipediaTitle: "Porcupine Mountains", state: "Michigan", fact: "The Lake Superior highlands contain extensive old-growth northern forest.", lat: 46.7542, lon: -89.79 },
+  { code: "itasca-natural-area", name: "Itasca Natural Area", wikipediaTitle: "Itasca State Park", state: "Minnesota", fact: "Forest and lakes near the headwaters of the Mississippi River preserve a northern landscape.", lat: 47.2397, lon: -95.2075 },
+  { code: "hell-creek", name: "Hell Creek Fossil Area", wikipediaTitle: "Hell Creek Formation", state: "Montana", fact: "Late Cretaceous rocks here preserve dinosaur fossils from near the end of their era.", lat: 46.15, lon: -107.48 },
+  { code: "ashfall-fossil-beds", name: "Ashfall Fossil Beds", state: "Nebraska", fact: "Volcanic ash buried and preserved animals at an ancient watering hole.", lat: 42.425, lon: -98.1586 },
+  { code: "valley-of-fire", name: "Valley of Fire", wikipediaTitle: "Valley of Fire State Park", state: "Nevada", fact: "Red sandstone outcrops reveal ancient dunes shaped by erosion.", lat: 36.4722, lon: -114.5375 },
+  { code: "albany-pine-bush", name: "Albany Pine Bush", state: "New York", fact: "An inland pine barrens ecosystem grows on sand left by ancient glacial Lake Albany.", lat: 42.7183, lon: -73.8644 },
+  { code: "newberry-crater", name: "Newberry Crater", wikipediaTitle: "Newberry National Volcanic Monument", state: "Oregon", fact: "A volcanic caldera with lakes, lava flows, and other evidence of repeated eruptions.", lat: 43.6942, lon: -121.2519 },
+  { code: "enchanted-rock", name: "Enchanted Rock", state: "Texas", fact: "A massive exposed granite dome rises above the surrounding Hill Country.", lat: 30.5066, lon: -98.8189 },
+  { code: "mima-mounds", name: "Mima Mounds", state: "Washington", fact: "Thousands of rounded earth mounds form a distinctive prairie landscape.", lat: 46.8986, lon: -123.0505 },
+];
+
 const els = {
   map: document.getElementById("usMap"),
   riversLayer: document.getElementById("riversLayer"),
   mountainsLayer: document.getElementById("mountainsLayer"),
   landmarksLayer: document.getElementById("landmarksLayer"),
+  naturalLandmarksLayer: document.getElementById("naturalLandmarksLayer"),
   landmarkMapHint: document.getElementById("landmarkMapHint"),
   landmarkInfo: document.getElementById("landmarkInfo"),
   landmarkInfoClose: document.getElementById("landmarkInfoClose"),
@@ -195,10 +221,10 @@ function landmarkMapPoint(landmark) {
     y: -1219.3891356978904 * -rho * Math.cos(theta) - 1132.5252724742165 };
 }
 
-function renderLandmarkMarkers() {
-  if (!els.landmarksLayer) return;
+function renderLandmarkMarkers(landmarks, layer) {
+  if (!layer) return;
   const svgNS = "http://www.w3.org/2000/svg";
-  for (const landmark of LANDMARKS) {
+  for (const landmark of landmarks) {
     const { x, y } = landmarkMapPoint(landmark);
     const marker = document.createElementNS(svgNS, "g");
     marker.setAttribute("class", "landmark");
@@ -217,7 +243,7 @@ function renderLandmarkMarkers() {
     hit.setAttribute("cy", y.toFixed(1));
     hit.setAttribute("r", "13");
     marker.append(dot, hit);
-    els.landmarksLayer.appendChild(marker);
+    layer.appendChild(marker);
   }
 }
 
@@ -400,17 +426,18 @@ function updateQuizBanner(currentState) {
   const isRiver = currentState === RiverState;
   const isMountain = currentState === MountainState;
   const isLandmark = currentState === LandmarkState;
+  const isNaturalLandmark = currentState === NaturalLandmarkState;
   const isCapital = currentState === CapitalState;
 
   const show =
-    (isQuiz || isRiver || isMountain || isLandmark || isCapital) && round > 0 && totalRounds > 0 && target;
+    (isQuiz || isRiver || isMountain || isLandmark || isNaturalLandmark || isCapital) && round > 0 && totalRounds > 0 && target;
   els.quizBanner.classList.toggle("hidden", !show);
 
   if (!show) return;
 
   const safeTotal = Number.isFinite(totalRounds) ? totalRounds : 0;
   let line = "";
-  if (isQuiz || isRiver || isMountain || isLandmark) {
+  if (isQuiz || isRiver || isMountain || isLandmark || isNaturalLandmark) {
     line = `Round ${round}/${safeTotal}: Find ${target.name}`;
   } else if (isCapital) {
     // Show all capital options in the banner as clickable buttons
@@ -467,8 +494,8 @@ function resetMountainClasses() {
   });
 }
 
-function resetLandmarkClasses() {
-  els.landmarksLayer?.querySelectorAll(".landmark").forEach((el) => {
+function resetLandmarkClasses(layer) {
+  layer?.querySelectorAll(".landmark").forEach((el) => {
     el.classList.remove("correct", "wrong", "learned");
   });
 }
@@ -478,14 +505,14 @@ function hideLandmarkInfo() {
   if (els.landmarkInfoImage) els.landmarkInfoImage.removeAttribute("src");
 }
 
-function showLandmarkInfo(landmark) {
+function showLandmarkInfo(landmark, imageDirectory) {
   if (!els.landmarkInfo) return;
   els.landmarkInfoName.textContent = landmark.name;
   els.landmarkInfoState.textContent = landmark.state;
   els.landmarkInfoFact.textContent = landmark.fact;
   const title = landmark.wikipediaTitle ?? landmark.name;
   els.landmarkInfoWikipedia.href = `https://en.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, "_"))}`;
-  els.landmarkInfoImage.src = `assets/landmarks/${landmark.code}.jpg`;
+  els.landmarkInfoImage.src = `assets/${imageDirectory}/${landmark.code}.jpg`;
   els.landmarkInfoImage.alt = `Photo of ${landmark.name}`;
   els.landmarkInfo.classList.remove("hidden");
 }
@@ -579,7 +606,7 @@ function shuffle(array) {
 
 function updateRoundCountOptions(mode) {
   if (!els.roundCount) return;
-  const availableCount = mode === "river" ? RIVERS.length : mode === "mountain" ? MOUNTAINS.length : mode === "landmark" ? LANDMARKS.length : Infinity;
+  const availableCount = mode === "river" ? RIVERS.length : mode === "mountain" ? MOUNTAINS.length : mode === "landmark" ? LANDMARKS.length : mode === "natural-landmark" ? NATURAL_LANDMARKS.length : Infinity;
   const options = Array.from(els.roundCount.options);
   const selectedCount = Number.parseInt(els.roundCount.value, 10);
   for (const option of options) {
@@ -610,9 +637,11 @@ class StateMachine {
     els.riversLayer?.classList.toggle("hidden", name !== "river");
     els.mountainsLayer?.classList.toggle("hidden", name !== "mountain");
     els.landmarksLayer?.classList.toggle("hidden", name !== "landmark");
-    els.map?.classList.toggle("landmark-mode", name === "landmark");
-    els.map?.parentElement?.classList.toggle("landmark-map", name === "landmark");
-    els.landmarkMapHint?.classList.toggle("hidden", name !== "landmark");
+    els.naturalLandmarksLayer?.classList.toggle("hidden", name !== "natural-landmark");
+    const landmarkMode = name === "landmark" || name === "natural-landmark";
+    els.map?.classList.toggle("landmark-mode", landmarkMode);
+    els.map?.parentElement?.classList.toggle("landmark-map", landmarkMode);
+    els.landmarkMapHint?.classList.toggle("hidden", !landmarkMode);
   }
   handle(event, ...args) {
     if (this.current && this.current[event]) {
@@ -1063,141 +1092,145 @@ const MountainState = {
   },
 };
 
-let landmarkTurn = 0;
+function createLandmarkState(landmarks, layer, imageDirectory, label) {
+  let landmarkTurn = 0;
+  return {
+    enter() {
+      landmarkTurn += 1;
+      resetStateClasses();
+      resetLandmarkClasses(layer);
+      hideLandmarkInfo();
+      hideToast();
+      hideQuizMessage();
+      score = 0;
+      round = 0;
+      inRound = false;
+      target = null;
+      remaining = [];
+      setNextEnabled(false);
+      updateQuizBanner(this);
+      setCapitalUIVisible(false);
+      setLearnUIVisible(false);
+      setFlagQuizUIVisible(false);
+      setQuizUIVisible(true);
+      removeLearnFlagsToggle();
+      els.learnFlagWrap?.classList.add("hidden");
+      els.learnBannerFlagWrap?.classList.add("hidden");
+      els.endScreen.classList.add("hidden");
+      els.score.textContent = "0";
+      totalRounds = Math.min(Number(els.roundCount?.value) || DEFAULT_TOTAL_ROUNDS, landmarks.length);
+      els.totalRounds.textContent = String(totalRounds);
+      els.round.textContent = "1";
+      els.targetState.textContent = "—";
+      setHint(`Click a marker to explore a ${label}, or press Start.`);
+      els.startBtn.disabled = false;
+      els.restartBtn.disabled = false;
+      if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = false;
+    },
+    exit() {
+      landmarkTurn += 1;
+      hideLandmarkInfo();
+      resetLandmarkClasses(layer);
+    },
+    start() {
+      landmarkTurn += 1;
+      resetLandmarkClasses(layer);
+      hideLandmarkInfo();
+      hideQuizMessage();
+      score = 0;
+      round = 0;
+      inRound = false;
+      target = null;
+      const available = landmarks.filter((landmark) =>
+        layer?.querySelector(`[data-landmark="${landmark.code}"]`),
+      );
+      totalRounds = Math.min(Number(els.roundCount?.value) || DEFAULT_TOTAL_ROUNDS, available.length);
+      els.totalRounds.textContent = String(totalRounds);
+      els.score.textContent = "0";
+      els.round.textContent = "1";
+      els.endScreen.classList.add("hidden");
+      setNextEnabled(false);
+      remaining = shuffle([...available]);
+      if (!remaining.length) {
+        setHint("No landmark markers found on the map.", "bad");
+        return;
+      }
+      els.startBtn.disabled = true;
+      this.next();
+    },
+    next() {
+      landmarkTurn += 1;
+      resetLandmarkClasses(layer);
+      hideLandmarkInfo();
+      hideQuizMessage();
+      if (round >= totalRounds || !remaining.length) {
+        this.end();
+        return;
+      }
+      round += 1;
+      inRound = true;
+      target = remaining.pop();
+      els.round.textContent = String(round);
+      els.targetState.textContent = target.name;
+      setNextEnabled(false);
+      setHint("Click the correct landmark marker on the map.");
+      updateQuizBanner(this);
+    },
+    end() {
+      inRound = false;
+      target = null;
+      els.targetState.textContent = "—";
+      setNextEnabled(false);
+      els.startBtn.disabled = false;
+      els.finalScore.textContent = String(score);
+      els.endScreen.classList.remove("hidden");
+      setHint(`Game finished. Click a marker to explore another ${label}, or Restart.`);
+      updateQuizBanner(this);
+    },
+    handleLandmarkClick(el) {
+      const code = el.getAttribute("data-landmark");
+      const selected = landmarks.find((landmark) => landmark.code === code);
+      if (!selected) return;
+      if (!target) {
+        resetLandmarkClasses(layer);
+        el.classList.add("learned");
+        showLandmarkInfo(selected, imageDirectory);
+        return;
+      }
+      if (!inRound) {
+        showLandmarkInfo(selected, imageDirectory);
+        return;
+      }
+      const isCorrect = code === target.code;
+      inRound = false;
+      if (isCorrect) {
+        score += 1;
+        els.score.textContent = String(score);
+        el.classList.add("correct");
+        setHint("Correct!", "good");
+        showQuizMessage("Correct!", "good");
+      } else {
+        el.classList.add("wrong");
+        layer?.querySelector(`[data-landmark="${target.code}"]`)?.classList.add("correct");
+        setHint(`Wrong. That was ${selected.name}. The correct marker is highlighted.`, "bad");
+        showQuizMessage(`Wrong. That was ${selected.name}.`, "bad");
+      }
+      showLandmarkInfo(selected, imageDirectory);
+      setNextEnabled(true);
+      if (isCorrect && els.autoNext?.checked) {
+        const answeredTurn = landmarkTurn;
+        window.setTimeout(() => {
+          if (stateMachine.current !== this || landmarkTurn !== answeredTurn) return;
+          if (inRound || !target) return;
+          this.next();
+        }, 5000);
+      }
+    },
+  };
+}
 
-const LandmarkState = {
-  enter() {
-    landmarkTurn += 1;
-    resetStateClasses();
-    resetLandmarkClasses();
-    hideLandmarkInfo();
-    hideToast();
-    hideQuizMessage();
-    score = 0;
-    round = 0;
-    inRound = false;
-    target = null;
-    remaining = [];
-    setNextEnabled(false);
-    updateQuizBanner(this);
-    setCapitalUIVisible(false);
-    setLearnUIVisible(false);
-    setFlagQuizUIVisible(false);
-    setQuizUIVisible(true);
-    removeLearnFlagsToggle();
-    els.learnFlagWrap?.classList.add("hidden");
-    els.learnBannerFlagWrap?.classList.add("hidden");
-    els.endScreen.classList.add("hidden");
-    els.score.textContent = "0";
-    totalRounds = Math.min(Number(els.roundCount?.value) || DEFAULT_TOTAL_ROUNDS, LANDMARKS.length);
-    els.totalRounds.textContent = String(totalRounds);
-    els.round.textContent = "1";
-    els.targetState.textContent = "—";
-    setHint("Click a marker to explore a landmark, or press Start.");
-    els.startBtn.disabled = false;
-    els.restartBtn.disabled = false;
-    if (els.bannerRestartBtn) els.bannerRestartBtn.disabled = false;
-  },
-  exit() {
-    landmarkTurn += 1;
-    hideLandmarkInfo();
-    resetLandmarkClasses();
-  },
-  start() {
-    landmarkTurn += 1;
-    resetLandmarkClasses();
-    hideLandmarkInfo();
-    hideQuizMessage();
-    score = 0;
-    round = 0;
-    inRound = false;
-    target = null;
-    const available = LANDMARKS.filter((landmark) =>
-      els.landmarksLayer?.querySelector(`[data-landmark="${landmark.code}"]`),
-    );
-    totalRounds = Math.min(Number(els.roundCount?.value) || DEFAULT_TOTAL_ROUNDS, available.length);
-    els.totalRounds.textContent = String(totalRounds);
-    els.score.textContent = "0";
-    els.round.textContent = "1";
-    els.endScreen.classList.add("hidden");
-    setNextEnabled(false);
-    remaining = shuffle([...available]);
-    if (!remaining.length) {
-      setHint("No landmark markers found on the map.", "bad");
-      return;
-    }
-    els.startBtn.disabled = true;
-    this.next();
-  },
-  next() {
-    landmarkTurn += 1;
-    resetLandmarkClasses();
-    hideLandmarkInfo();
-    hideQuizMessage();
-    if (round >= totalRounds || !remaining.length) {
-      this.end();
-      return;
-    }
-    round += 1;
-    inRound = true;
-    target = remaining.pop();
-    els.round.textContent = String(round);
-    els.targetState.textContent = target.name;
-    setNextEnabled(false);
-    setHint("Click the correct landmark marker on the map.");
-    updateQuizBanner(this);
-  },
-  end() {
-    inRound = false;
-    target = null;
-    els.targetState.textContent = "—";
-    setNextEnabled(false);
-    els.startBtn.disabled = false;
-    els.finalScore.textContent = String(score);
-    els.endScreen.classList.remove("hidden");
-    setHint("Game finished. Click a marker to explore another landmark, or Restart.");
-    updateQuizBanner(this);
-  },
-  handleLandmarkClick(el) {
-    const code = el.getAttribute("data-landmark");
-    const selected = LANDMARKS.find((landmark) => landmark.code === code);
-    if (!selected) return;
-    if (!target) {
-      resetLandmarkClasses();
-      el.classList.add("learned");
-      showLandmarkInfo(selected);
-      return;
-    }
-    if (!inRound) {
-      showLandmarkInfo(selected);
-      return;
-    }
-    const isCorrect = code === target.code;
-    inRound = false;
-    if (isCorrect) {
-      score += 1;
-      els.score.textContent = String(score);
-      el.classList.add("correct");
-      setHint("Correct!", "good");
-      showQuizMessage("Correct!", "good");
-    } else {
-      el.classList.add("wrong");
-      els.landmarksLayer?.querySelector(`[data-landmark="${target.code}"]`)?.classList.add("correct");
-      setHint(`Wrong. That was ${selected.name}. The correct marker is highlighted.`, "bad");
-      showQuizMessage(`Wrong. That was ${selected.name}.`, "bad");
-    }
-    showLandmarkInfo(selected);
-    setNextEnabled(true);
-    if (isCorrect && els.autoNext?.checked) {
-      const answeredTurn = landmarkTurn;
-      window.setTimeout(() => {
-        if (stateMachine.current !== LandmarkState || landmarkTurn !== answeredTurn) return;
-        if (inRound || !target) return;
-        this.next();
-      }, 5000);
-    }
-  },
-};
+const LandmarkState = createLandmarkState(LANDMARKS, els.landmarksLayer, "landmarks", "landmark");
+const NaturalLandmarkState = createLandmarkState(NATURAL_LANDMARKS, els.naturalLandmarksLayer, "natural-landmarks", "natural landmark");
 
 const CapitalState = {
   enter() {
@@ -1587,7 +1620,8 @@ const FlagState = {
   },
 };
 
-renderLandmarkMarkers();
+renderLandmarkMarkers(LANDMARKS, els.landmarksLayer);
+renderLandmarkMarkers(NATURAL_LANDMARKS, els.naturalLandmarksLayer);
 
 // --- State Machine Instance ---
 const stateMachine = new StateMachine(
@@ -1596,6 +1630,7 @@ const stateMachine = new StateMachine(
     river: RiverState,
     mountain: MountainState,
     landmark: LandmarkState,
+    "natural-landmark": NaturalLandmarkState,
     capital: CapitalState,
     learn: LearnState,
     flag: FlagState,
@@ -1648,7 +1683,7 @@ els.map.addEventListener("click", (e) => {
     }
     return;
   }
-  if (stateMachine.current === LandmarkState) {
+  if (stateMachine.current === LandmarkState || stateMachine.current === NaturalLandmarkState) {
     const landmarkEl = el.closest(".landmark");
     if (landmarkEl) stateMachine.handle("handleLandmarkClick", landmarkEl);
     return;
@@ -1679,14 +1714,16 @@ els.mountainsLayer?.addEventListener("keydown", (e) => {
   stateMachine.handle("handleMountainClick", mountainEl);
 });
 
-els.landmarksLayer?.addEventListener("keydown", (e) => {
-  if (stateMachine.current !== LandmarkState) return;
-  if (e.key !== "Enter" && e.key !== " ") return;
-  const landmarkEl = e.target.closest(".landmark");
-  if (!landmarkEl) return;
-  e.preventDefault();
-  stateMachine.handle("handleLandmarkClick", landmarkEl);
-});
+for (const [layer, mode] of [[els.landmarksLayer, LandmarkState], [els.naturalLandmarksLayer, NaturalLandmarkState]]) {
+  layer?.addEventListener("keydown", (e) => {
+    if (stateMachine.current !== mode) return;
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const landmarkEl = e.target.closest(".landmark");
+    if (!landmarkEl) return;
+    e.preventDefault();
+    stateMachine.handle("handleLandmarkClick", landmarkEl);
+  });
+}
 
 els.landmarkInfoClose?.addEventListener("click", hideLandmarkInfo);
 

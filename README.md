@@ -12,6 +12,7 @@ https://rubiknube.github.io/UsaQuiz/
 - [x] Find major US rivers on the map
 - [x] Find major US mountain ranges on the map
 - [x] Find National Historic Landmarks on the map
+- [x] Find National Natural Landmarks on the map
 
 ## How to Play
 
@@ -28,6 +29,7 @@ https://rubiknube.github.io/UsaQuiz/
    - **River Quiz**: before starting, click any river to see its name and approximate length in a panel that stays visible while scrolling. Press **Start**, then click the named river on the map. The quiz includes 20 major river systems and limits the selected question count to the number available. A wrong answer highlights both the clicked and correct rivers. **Auto next** advances after a correct answer; otherwise use **Next**. River information is available again after the game ends.
    - **Mountain Range Quiz**: before starting, click a range to see its location and a notable summit with approximate elevation. Press **Start**, then click the named range on the map. The quiz includes 12 ranges across the contiguous US, Alaska, and Hawaii; question counts are limited to available ranges. A wrong answer highlights both the clicked and correct ranges. **Auto next** advances after a correct answer; otherwise use **Next**. Range information is available again after the game ends.
    - **National Historic Landmarks Quiz**: before starting, click a marker to see a photo, location, historical note, and a link to the landmark's Wikipedia article. Press **Start**, then click the marker for the named landmark. The quiz includes 20 designated landmarks in 20 states, including Alaska and Hawaii. After an answer, the selected landmark's details appear and a wrong answer highlights the correct marker. **Auto next** advances after a correct answer; otherwise use **Next**. Study information is available again after the game ends.
+   - **National Natural Landmarks Quiz**: explore 20 designated natural sites in 20 states, including Alaska and Hawaii. Click a marker to see a photo, location, natural history note, and article link. Press **Start** to find the named site; scoring, wrong-answer highlights, **Auto next**, and post-game study work like the historic landmark quiz.
    - **Learn**: click any state to see its name.
 3. Use **Restart** to start a new game.
 
@@ -38,6 +40,12 @@ https://rubiknube.github.io/UsaQuiz/
 The 20 sites were checked against the [NPS list of designated National Historic Landmarks by state](https://www.nps.gov/subjects/nationalhistoriclandmarks/list-of-nhls-by-state.htm). Brief descriptions summarize their historic significance. Lower-48 markers use the same Albers projection as the capital markers; Alaska and Hawaii markers are placed on the map's separate insets. Positions are approximate on this stylized map.
 
 The locally bundled photos come from Wikimedia Commons. Authors, licenses, and source files are listed in [`assets/landmarks/ATTRIBUTION.md`](assets/landmarks/ATTRIBUTION.md). The source titles, image metadata, and coordinates used during curation are in [`assets/landmarks/metadata.json`](assets/landmarks/metadata.json). Run `python3 scripts/fetch-landmark-images.py --refresh` to refresh the photo thumbnails and attribution.
+
+### National Natural Landmarks
+
+The 20 sites were checked against the [NPS list of current National Natural Landmarks](https://irma.nps.gov/DataStore/Reference/Profile/2318620). Marker positions are approximate site centers on the stylized map; Alaska and Hawaii use the map's separate insets. The notes describe natural features rather than access or visiting conditions.
+
+The bundled photos come from Wikimedia Commons. Authors, licenses, and source files are listed in [`assets/natural-landmarks/ATTRIBUTION.md`](assets/natural-landmarks/ATTRIBUTION.md); image metadata and article coordinates are in [`assets/natural-landmarks/metadata.json`](assets/natural-landmarks/metadata.json). Run `python3 scripts/fetch-natural-landmark-images.py --refresh` to refresh thumbnails and attribution.
 
 ### US map
 

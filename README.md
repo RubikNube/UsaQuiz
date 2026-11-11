@@ -11,6 +11,7 @@ https://rubiknube.github.io/UsaQuiz/
 - [x] Guess the state flag
 - [x] Find major US rivers on the map
 - [x] Find major US mountain ranges on the map
+- [x] Find National Historic Landmarks on the map
 
 ## How to Play
 
@@ -26,10 +27,17 @@ https://rubiknube.github.io/UsaQuiz/
    - **Flag Quiz**: press **Start**, then for each round, the name of a state is shown in the top banner and you must pick the correct flag from a set of options. The map is hidden in this mode to maximize flag size. Use the **Flag size** dropdown to choose how large the flags appear (Auto, S, M, L, XL, XXL). The UI updates instantly when you change the flag size. After answering, a notification appears for correct or wrong answers. Use **Next** to advance, or **Restart** to start over.
    - **River Quiz**: before starting, click any river to see its name and approximate length in a panel that stays visible while scrolling. Press **Start**, then click the named river on the map. The quiz includes 20 major river systems and limits the selected question count to the number available. A wrong answer highlights both the clicked and correct rivers. **Auto next** advances after a correct answer; otherwise use **Next**. River information is available again after the game ends.
    - **Mountain Range Quiz**: before starting, click a range to see its location and a notable summit with approximate elevation. Press **Start**, then click the named range on the map. The quiz includes 12 ranges across the contiguous US, Alaska, and Hawaii; question counts are limited to available ranges. A wrong answer highlights both the clicked and correct ranges. **Auto next** advances after a correct answer; otherwise use **Next**. Range information is available again after the game ends.
+   - **National Historic Landmarks Quiz**: before starting, click a marker to see a photo, location, historical note, and a link to the landmark's Wikipedia article. Press **Start**, then click the marker for the named landmark. The quiz includes 20 designated landmarks in 20 states, including Alaska and Hawaii. After an answer, the selected landmark's details appear and a wrong answer highlights the correct marker. **Auto next** advances after a correct answer; otherwise use **Next**. Study information is available again after the game ends.
    - **Learn**: click any state to see its name.
 3. Use **Restart** to start a new game.
 
 ## Resources
+
+### National Historic Landmarks
+
+The 20 sites were checked against the [NPS list of designated National Historic Landmarks by state](https://www.nps.gov/subjects/nationalhistoriclandmarks/list-of-nhls-by-state.htm). Brief descriptions summarize their historic significance. Lower-48 markers use the same Albers projection as the capital markers; Alaska and Hawaii markers are placed on the map's separate insets. Positions are approximate on this stylized map.
+
+The locally bundled photos come from Wikimedia Commons. Authors, licenses, and source files are listed in [`assets/landmarks/ATTRIBUTION.md`](assets/landmarks/ATTRIBUTION.md). The source titles, image metadata, and coordinates used during curation are in [`assets/landmarks/metadata.json`](assets/landmarks/metadata.json). Run `python3 scripts/fetch-landmark-images.py --refresh` to refresh the photo thumbnails and attribution.
 
 ### US map
 

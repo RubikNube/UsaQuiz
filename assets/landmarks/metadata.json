@@ -1,0 +1,368 @@
+[
+  {
+    "slug": "brown-chapel",
+    "title": "Brown Chapel",
+    "file": "Brown Chapel AME.jpg",
+    "coordinates": null,
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Brown_Chapel_AME.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Brown_Chapel_AME.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Altairisfar\" title=\"User:Altairisfar\">Altairisfar</a>",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/landmarks/brown-chapel.jpg"
+  },
+  {
+    "slug": "russian-bishops-house",
+    "title": "Russian Bishop's House",
+    "file": "Russian_Bishop_House_August_2005.JPG",
+    "coordinates": [
+      {
+        "lat": 57.05147,
+        "lon": -135.33101,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Russian_Bishop_House_August_2005.JPG/500px-Russian_Bishop_House_August_2005.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Russian_Bishop_House_August_2005.JPG",
+    "artist": "The original uploader was <a href=\"https://en.wikipedia.org/wiki/User:Lordkinbote\" class=\"extiw\" title=\"wikipedia:User:Lordkinbote\">Lordkinbote</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>.",
+    "license": "CC BY-SA 2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+    "path": "assets/landmarks/russian-bishops-house.jpg"
+  },
+  {
+    "slug": "taliesin-west",
+    "title": "Taliesin West",
+    "file": "Taliesin_West_Complex_DSCN2137.jpg",
+    "coordinates": [
+      {
+        "lat": 33.6064,
+        "lon": -111.8453,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Taliesin_West_Complex_DSCN2137.jpg/500px-Taliesin_West_Complex_DSCN2137.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Taliesin_West_Complex_DSCN2137.jpg",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Lar\" class=\"extiw\" title=\"en:User:Lar\">Lar</a> (primary) <a href=\"//commons.wikimedia.org/wiki/User:Lar\" title=\"User:Lar\">User:Lar</a> (secondary)",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/landmarks/taliesin-west.jpg"
+  },
+  {
+    "slug": "little-rock-central",
+    "title": "Little Rock Central High School",
+    "file": "Facade_of_Central_High_School_-_Little_Rock_-_Arkansas_-_USA_-_01.jpg",
+    "coordinates": [
+      {
+        "lat": 34.7368,
+        "lon": -92.2989,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Facade_of_Central_High_School_-_Little_Rock_-_Arkansas_-_USA_-_01.jpg/500px-Facade_of_Central_High_School_-_Little_Rock_-_Arkansas_-_USA_-_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Facade_of_Central_High_School_-_Little_Rock_-_Arkansas_-_USA_-_01.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Adam63\" title=\"User:Adam63\">Adam Jones, Ph.D.</a>",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "path": "assets/landmarks/little-rock-central.jpg"
+  },
+  {
+    "slug": "alcatraz",
+    "title": "Alcatraz Island",
+    "file": "Alcatraz_2021.jpg",
+    "coordinates": [
+      {
+        "lat": 37.82666667,
+        "lon": -122.42277778,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Alcatraz_2021.jpg/500px-Alcatraz_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Alcatraz_2021.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Chris6d\" title=\"User:Chris6d\">Chris6d</a>",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/landmarks/alcatraz.jpg"
+  },
+  {
+    "slug": "bents-old-fort",
+    "title": "Bent's Old Fort National Historic Site",
+    "file": "BentsFort.jpg",
+    "coordinates": [
+      {
+        "lat": 38.0406,
+        "lon": -103.4294,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/BentsFort.jpg/500px-BentsFort.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:BentsFort.jpg",
+    "artist": "Sally Pearce, Colorado Department of Transportation; cleaned up and color-corrected by <a href=\"//commons.wikimedia.org/wiki/User:Howcheng\" class=\"mw-redirect\" title=\"User:Howcheng\">Howcheng</a>",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/landmarks/bents-old-fort.jpg"
+  },
+  {
+    "slug": "vizcaya",
+    "title": "Vizcaya Museum and Gardens",
+    "file": "Villa_Vizcaya_20110228.jpg",
+    "coordinates": [
+      {
+        "lat": 25.74361111,
+        "lon": -80.21027778,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Villa_Vizcaya_20110228.jpg/500px-Villa_Vizcaya_20110228.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Villa_Vizcaya_20110228.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Averette\" title=\"User:Averette\">Averette</a>",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "path": "assets/landmarks/vizcaya.jpg"
+  },
+  {
+    "slug": "pearl-harbor",
+    "title": "Joint Base Pearl Harbor–Hickam",
+    "file": "US_Navy_040630-N-2911P-004_Ships_from_seven_participating_nations_sit_pier_side_at_Pearl_Harbor,_Hawaii,_awaiting_the_start_of_exercise_Rim_of_the_Pacific_(RIMPAC)_2004.jpg",
+    "coordinates": null,
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/US_Navy_040630-N-2911P-004_Ships_from_seven_participating_nations_sit_pier_side_at_Pearl_Harbor%2C_Hawaii%2C_awaiting_the_start_of_exercise_Rim_of_the_Pacific_%28RIMPAC%29_2004.jpg/500px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:US_Navy_040630-N-2911P-004_Ships_from_seven_participating_nations_sit_pier_side_at_Pearl_Harbor,_Hawaii,_awaiting_the_start_of_exercise_Rim_of_the_Pacific_(RIMPAC)_2004.jpg",
+    "artist": "U.S. Navy photo",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/landmarks/pearl-harbor.jpg"
+  },
+  {
+    "slug": "old-state-capitol",
+    "title": "Old State Capitol State Historic Site",
+    "file": "OldStateCapitol051916a.jpg",
+    "coordinates": [
+      {
+        "lat": 39.80111111,
+        "lon": -89.64861111,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/OldStateCapitol051916a.jpg/500px-OldStateCapitol051916a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:OldStateCapitol051916a.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:AmosDoyle&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:AmosDoyle (page does not exist)\">Amos Oliver Doyle</a>",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/landmarks/old-state-capitol.jpg"
+  },
+  {
+    "slug": "grand-hotel",
+    "title": "Grand Hotel (Mackinac Island)",
+    "file": "Grand_Hotel,_Mackinac_Island,_Michigan_-_53793790630.jpg",
+    "coordinates": [
+      {
+        "lat": 45.85111111,
+        "lon": -84.62583333,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Grand_Hotel%2C_Mackinac_Island%2C_Michigan_-_53793790630.jpg/500px-Grand_Hotel%2C_Mackinac_Island%2C_Michigan_-_53793790630.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Grand_Hotel,_Mackinac_Island,_Michigan_-_53793790630.jpg",
+    "artist": "<ul><li>rboed*</li></ul>",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "path": "assets/landmarks/grand-hotel.jpg"
+  },
+  {
+    "slug": "split-rock",
+    "title": "Split Rock Lighthouse",
+    "file": "Spit_Rock_Lighthouse_2012.jpg",
+    "coordinates": [
+      {
+        "lat": 47.20005,
+        "lon": -91.3669,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Spit_Rock_Lighthouse_2012.jpg/500px-Spit_Rock_Lighthouse_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Spit_Rock_Lighthouse_2012.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:JMLAX101&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:JMLAX101 (page does not exist)\">JMLAX101</a>",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "path": "assets/landmarks/split-rock.jpg"
+  },
+  {
+    "slug": "hoover-dam",
+    "title": "Hoover Dam",
+    "file": "2017_Aerial_view_Hoover_Dam_4774.jpg",
+    "coordinates": [
+      {
+        "lat": 36.01555556,
+        "lon": -114.73777778,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/2017_Aerial_view_Hoover_Dam_4774.jpg/500px-2017_Aerial_view_Hoover_Dam_4774.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:2017_Aerial_view_Hoover_Dam_4774.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Mariordo\" title=\"User:Mariordo\">Mariordo (Mario Roberto Durán Ortiz)</a>",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/landmarks/hoover-dam.jpg"
+  },
+  {
+    "slug": "taos-pueblo",
+    "title": "Taos Pueblo",
+    "file": "Taos_Pueblo_2017-05-05.jpg",
+    "coordinates": [
+      {
+        "lat": 36.43916667,
+        "lon": -105.54555556,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Taos_Pueblo_2017-05-05.jpg/500px-Taos_Pueblo_2017-05-05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Taos_Pueblo_2017-05-05.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:John_Mackenzie_Burke\" title=\"User:John Mackenzie Burke\">John Mackenzie Burke</a>",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/landmarks/taos-pueblo.jpg"
+  },
+  {
+    "slug": "biltmore",
+    "title": "Biltmore Estate",
+    "file": "Biltmore_Estate,_2012.jpg",
+    "coordinates": [
+      {
+        "lat": 35.54,
+        "lon": -82.55194444,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Biltmore_Estate%2C_2012.jpg/500px-Biltmore_Estate%2C_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Biltmore_Estate,_2012.jpg",
+    "artist": "Blake Lewis",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "path": "assets/landmarks/biltmore.jpg"
+  },
+  {
+    "slug": "timberline",
+    "title": "Timberline Lodge",
+    "file": "Timlodge.jpg",
+    "coordinates": [
+      {
+        "lat": 45.33111111,
+        "lon": -121.71,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Timlodge.jpg/500px-Timlodge.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Timlodge.jpg",
+    "artist": "Kelvin Kay, <a href=\"https://en.wikipedia.org/wiki/User:Kkmd\" class=\"extiw\" title=\"en:User:Kkmd\">Kkmd</a> at <a class=\"external text\" data-mw-original-href=\"http://en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a>",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "path": "assets/landmarks/timberline.jpg"
+  },
+  {
+    "slug": "fallingwater",
+    "title": "Fallingwater",
+    "file": "Fallingwater3.jpg",
+    "coordinates": [
+      {
+        "lat": 39.90626,
+        "lon": -79.46783,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Fallingwater3.jpg/500px-Fallingwater3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Fallingwater3.jpg",
+    "artist": "lachrimae72",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "path": "assets/landmarks/fallingwater.jpg"
+  },
+  {
+    "slug": "graceland",
+    "title": "Graceland",
+    "file": "USA_Tour_2019_P095_Graceland.jpg",
+    "coordinates": [
+      {
+        "lat": 35.04594444,
+        "lon": -90.02294444,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/USA_Tour_2019_P095_Graceland.jpg/500px-USA_Tour_2019_P095_Graceland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:USA_Tour_2019_P095_Graceland.jpg",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Fallaner\" title=\"User:Fallaner\">Fallaner</a>",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/landmarks/graceland.jpg"
+  },
+  {
+    "slug": "texas-capitol",
+    "title": "Texas State Capitol",
+    "file": "TexasStateCapitol-2010-01.JPG",
+    "coordinates": [
+      {
+        "lat": 30.27472222,
+        "lon": -97.74055556,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/TexasStateCapitol-2010-01.JPG/500px-TexasStateCapitol-2010-01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:TexasStateCapitol-2010-01.JPG",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:LoneStarMike\" title=\"User:LoneStarMike\">LoneStarMike</a>",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "path": "assets/landmarks/texas-capitol.jpg"
+  },
+  {
+    "slug": "temple-square",
+    "title": "Temple Square",
+    "file": "Temple_Square,_Salt_Lake_City,_1899_retouched.jpg",
+    "coordinates": [
+      {
+        "lat": 40.77055556,
+        "lon": -111.8925,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Temple_Square%2C_Salt_Lake_City%2C_1899_retouched.jpg/500px-Temple_Square%2C_Salt_Lake_City%2C_1899_retouched.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Temple_Square,_Salt_Lake_City,_1899_retouched.jpg",
+    "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:William_Henry_Jackson\" class=\"extiw\" title=\"w:en:William Henry Jackson\"><span title=\"American photographer and painter (1843-1942)\">William Henry Jackson</span></a></bdi>",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/landmarks/temple-square.jpg"
+  },
+  {
+    "slug": "mount-vernon",
+    "title": "Mount Vernon",
+    "file": "West_Face_of_Mansion,_Mount_Vernon,_Near_Alexandria,_Virginia_(2731038734).jpg",
+    "coordinates": [
+      {
+        "lat": 38.708,
+        "lon": -77.0861,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/West_Face_of_Mansion%2C_Mount_Vernon%2C_Near_Alexandria%2C_Virginia_%282731038734%29.jpg/500px-West_Face_of_Mansion%2C_Mount_Vernon%2C_Near_Alexandria%2C_Virginia_%282731038734%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:West_Face_of_Mansion,_Mount_Vernon,_Near_Alexandria,_Virginia_(2731038734).jpg",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/75683070@N00\">Ken Lund</a> from Reno, Nevada, USA",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "path": "assets/landmarks/mount-vernon.jpg"
+  }
+]

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>USA Quiz - States, Capitals, Flags, Rivers, and Mountain Ranges</title>
+    <title>USA Quiz - States, Capitals, Flags, Rivers, Mountains, and Landmarks</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -27,6 +27,14 @@
       <strong id="mountainInfoName"></strong>
       <span id="mountainInfoRegion"></span>
       <span id="mountainInfoPeak"></span>
+    </div>
+    <div id="landmarkInfo" class="toast landmarkInfo hidden" role="status" aria-live="polite">
+      <button id="landmarkInfoClose" class="landmarkInfoClose" type="button" aria-label="Close landmark details">×</button>
+      <img id="landmarkInfoImage" alt="" />
+      <strong id="landmarkInfoName"></strong>
+      <span id="landmarkInfoState"></span>
+      <span id="landmarkInfoFact"></span>
+      <a id="landmarkInfoWikipedia" href="#" target="_blank" rel="noopener noreferrer">Read more on Wikipedia ↗</a>
     </div>
 
     <div
@@ -117,6 +125,7 @@
               <option value="quiz" selected>Quiz</option>
               <option value="river">River Quiz</option>
               <option value="mountain">Mountain Range Quiz</option>
+              <option value="landmark">National Historic Landmarks Quiz</option>
               <option value="capital">Select the Capital</option>
               <option value="flag">Flag Quiz</option>
               <option value="learn">Learn</option>
@@ -164,6 +173,7 @@
       </section>
 
       <section class="mapWrap">
+        <p id="landmarkMapHint" class="landmarkMapHint hidden">Swipe the map sideways to see all landmarks.</p>
         <svg id="usMap" viewBox="0 100 958 660" role="group" aria-label="USA map">
           <rect x="0" y="0" width="1430" height="958" class="ocean" />
 
@@ -1156,6 +1166,7 @@
               <path class="mountain-hit mountain-hit--island" d="M 288,658 L 291,662 L 294,664" />
             </g>
           </g>
+          <g id="landmarksLayer" class="hidden" aria-label="National Historic Landmarks"></g>
         </svg>
       </section>
 
@@ -1191,6 +1202,8 @@
         rel="noopener noreferrer"
         >Flag image attributions</a
       >
+      <span class="footer__sep">•</span>
+      <a href="assets/landmarks/ATTRIBUTION.md" target="_blank" rel="noopener noreferrer">Landmark photo credits</a>
     </footer>
 
     <script src="app.js"></script>

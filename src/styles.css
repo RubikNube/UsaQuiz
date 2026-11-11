@@ -510,6 +510,14 @@ button:disabled {
   fill: var(--bad) !important;
 }
 
+#usMap.landmark-mode .state {
+  pointer-events: none;
+}
+
+#usMap.landmark-mode .capital-dot {
+  display: none;
+}
+
 .end {
   background: var(--panel);
   padding: 16px;
@@ -752,6 +760,126 @@ button:disabled {
 .mountain.wrong .mountain-line {
   stroke: var(--bad);
   stroke-width: 8;
+}
+
+.landmark-dot {
+  fill: #ffd36b;
+  stroke: #332a16;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.landmark-hit {
+  fill: transparent;
+  cursor: pointer;
+}
+
+.landmark:hover .landmark-dot,
+.landmark:focus-visible .landmark-dot,
+.landmark.learned .landmark-dot {
+  fill: #fff1b2;
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.landmark:focus-visible {
+  outline: none;
+}
+
+.landmark.correct .landmark-dot {
+  fill: var(--good);
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.landmark.wrong .landmark-dot {
+  fill: var(--bad);
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.landmarkInfo {
+  top: auto;
+  bottom: 12px;
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  align-items: center;
+  justify-items: start;
+  gap: 3px 12px;
+  width: min(92vw, 520px);
+  padding: 12px;
+  border: 1px solid rgba(255, 211, 107, 0.4);
+  background: rgba(17, 38, 57, 0.97);
+  font-weight: 400;
+  text-align: left;
+  pointer-events: auto;
+}
+
+.landmarkInfoClose {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  padding: 2px 7px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.landmarkInfoClose:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.landmarkInfo img {
+  grid-row: 1 / span 4;
+  width: 110px;
+  height: 100px;
+  object-fit: contain;
+  padding: 0;
+}
+
+.landmarkInfo strong {
+  color: #fff1b2;
+}
+
+.landmarkInfo span {
+  line-height: 1.35;
+}
+
+.landmarkInfo a {
+  color: #9fd8ff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.landmarkInfo a:hover,
+.landmarkInfo a:focus-visible {
+  color: #fff;
+}
+
+.landmarkMapHint {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .landmarkMapHint:not(.hidden) {
+    display: block;
+    margin: 8px 12px 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .mapWrap.landmark-map {
+    overflow-x: auto;
+  }
+
+  #usMap.landmark-mode {
+    min-width: 740px;
+  }
 }
 
 .riverInfo {

@@ -638,11 +638,13 @@ function updateRoundCountOptions(mode) {
   const options = Array.from(els.roundCount.options);
   const selectedCount = Number.parseInt(els.roundCount.value, 10);
   for (const option of options) {
-    const unavailable = Number(option.value) > availableCount;
+    const unavailable = Number(option.value) > availableCount || (option.value === "12" && mode !== "mountain");
     option.hidden = unavailable;
     option.disabled = unavailable;
   }
-  if (selectedCount > availableCount) {
+  if (selectedCount === 12 && mode !== "mountain") {
+    els.roundCount.value = String(DEFAULT_TOTAL_ROUNDS);
+  } else if (selectedCount > availableCount) {
     const largestAvailable = options
       .filter((option) => !option.disabled)
       .at(-1);

@@ -1,0 +1,368 @@
+[
+  {
+    "slug": "monument-valley",
+    "title": "Monument Valley",
+    "file": "Monument_Valley,_Utah,_USA_(23611451292).jpg",
+    "coordinates": [
+      {
+        "lat": 36.98333333,
+        "lon": -110.1,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Monument_Valley%2C_Utah%2C_USA_%2823611451292%29.jpg/500px-Monument_Valley%2C_Utah%2C_USA_%2823611451292%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Monument_Valley,_Utah,_USA_(23611451292).jpg",
+    "artist": "Domenico Convertini",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "path": "assets/famous-places/monument-valley.jpg"
+  },
+  {
+    "slug": "delicate-arch",
+    "title": "Delicate Arch",
+    "file": "Delicate_arch_sunset.jpg",
+    "coordinates": [
+      {
+        "lat": 38.743517,
+        "lon": -109.499341,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/500px-Delicate_arch_sunset.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Delicate_arch_sunset.jpg",
+    "artist": "Palacemusic",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "path": "assets/famous-places/delicate-arch.jpg"
+  },
+  {
+    "slug": "grand-canyon",
+    "title": "Grand Canyon",
+    "file": "Canyon_River_Tree_(165872763).jpeg",
+    "coordinates": [
+      {
+        "lat": 36.3,
+        "lon": -112.75,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Canyon_River_Tree_%28165872763%29.jpeg/500px-Canyon_River_Tree_%28165872763%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Canyon_River_Tree_(165872763).jpeg",
+    "artist": "Lennart Sikkema",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "path": "assets/famous-places/grand-canyon.jpg"
+  },
+  {
+    "slug": "yellowstone",
+    "title": "Yellowstone National Park",
+    "file": "Old Faithful erupting.jpg",
+    "coordinates": [
+      {
+        "lat": 44.6,
+        "lon": -110.5,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Old_Faithful_erupting.jpg/500px-Old_Faithful_erupting.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Old_Faithful_erupting.jpg",
+    "artist": "Skydiver2016",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/famous-places/yellowstone.jpg"
+  },
+  {
+    "slug": "everglades",
+    "title": "Everglades National Park",
+    "file": "Sunset_over_the_River_of_Grass,_NPSphoto,_G.Gardner_(9255157507).jpg",
+    "coordinates": [
+      {
+        "lat": 25.3125,
+        "lon": -80.6875,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Sunset_over_the_River_of_Grass%2C_NPSphoto%2C_G.Gardner_%289255157507%29.jpg/500px-Sunset_over_the_River_of_Grass%2C_NPSphoto%2C_G.Gardner_%289255157507%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Sunset_over_the_River_of_Grass,_NPSphoto,_G.Gardner_(9255157507).jpg",
+    "artist": "Everglades NPS from Homestead, Florida, United States",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/famous-places/everglades.jpg"
+  },
+  {
+    "slug": "yosemite",
+    "title": "Yosemite National Park",
+    "file": "Half_Dome_with_Eastern_Yosemite_Valley_(50MP).jpg",
+    "coordinates": [
+      {
+        "lat": 37.85,
+        "lon": -119.51666667,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Half_Dome_with_Eastern_Yosemite_Valley_%2850MP%29.jpg/500px-Half_Dome_with_Eastern_Yosemite_Valley_%2850MP%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Half_Dome_with_Eastern_Yosemite_Valley_(50MP).jpg",
+    "artist": "Thomas Wolf, www.foto-tw.de",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "path": "assets/famous-places/yosemite.jpg"
+  },
+  {
+    "slug": "golden-gate-bridge",
+    "title": "Golden Gate Bridge",
+    "file": "Golden_Gate_Bridge_as_seen_from_Battery_East.jpg",
+    "coordinates": [
+      {
+        "lat": 37.81972222,
+        "lon": -122.47861111,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Golden_Gate_Bridge_as_seen_from_Battery_East.jpg/500px-Golden_Gate_Bridge_as_seen_from_Battery_East.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge_as_seen_from_Battery_East.jpg",
+    "artist": "Frank Schulenburg",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/famous-places/golden-gate-bridge.jpg"
+  },
+  {
+    "slug": "hollywood-sign",
+    "title": "Hollywood Sign",
+    "file": "Hollywood_sign_(8485145044).jpg",
+    "coordinates": [
+      {
+        "lat": 34.13406111,
+        "lon": -118.32159167,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Hollywood_sign_%288485145044%29.jpg/500px-Hollywood_sign_%288485145044%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Hollywood_sign_(8485145044).jpg",
+    "artist": "Gnaphron",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "path": "assets/famous-places/hollywood-sign.jpg"
+  },
+  {
+    "slug": "las-vegas",
+    "title": "Las Vegas Strip",
+    "file": "Las_Vegas_Strip_09_2017_4897.jpg",
+    "coordinates": null,
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Las_Vegas_Strip_09_2017_4897.jpg/500px-Las_Vegas_Strip_09_2017_4897.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Las_Vegas_Strip_09_2017_4897.jpg",
+    "artist": "Mariordo (Mario Roberto Durán Ortiz)",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/famous-places/las-vegas.jpg"
+  },
+  {
+    "slug": "white-house",
+    "title": "White House",
+    "file": "White_House_north_and_south_sides.jpg",
+    "coordinates": [
+      {
+        "lat": 38.89777778,
+        "lon": -77.03638889,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/White_House_north_and_south_sides.jpg/500px-White_House_north_and_south_sides.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:White_House_north_and_south_sides.jpg",
+    "artist": "(top)Cezary p(bottom)MattWade",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/famous-places/white-house.jpg"
+  },
+  {
+    "slug": "graceland",
+    "title": "Graceland",
+    "file": "USA_Tour_2019_P095_Graceland.jpg",
+    "coordinates": [
+      {
+        "lat": 35.04594444,
+        "lon": -90.02294444,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/USA_Tour_2019_P095_Graceland.jpg/500px-USA_Tour_2019_P095_Graceland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:USA_Tour_2019_P095_Graceland.jpg",
+    "artist": "Fallaner",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/famous-places/graceland.jpg"
+  },
+  {
+    "slug": "ocean-drive",
+    "title": "Ocean Drive (South Beach)",
+    "file": "Ocean_drive_day_2009j.JPG",
+    "coordinates": [
+      {
+        "lat": 25.776755,
+        "lon": -80.131434,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Ocean_drive_day_2009j.JPG/500px-Ocean_drive_day_2009j.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Ocean_drive_day_2009j.JPG",
+    "artist": "chensiyuan",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/famous-places/ocean-drive.jpg"
+  },
+  {
+    "slug": "disney-world",
+    "title": "Walt Disney World",
+    "file": "Cinderella_Castle,_Magic_Kingdom_(2026)_(square_crop).jpg",
+    "coordinates": null,
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Cinderella_Castle%2C_Magic_Kingdom_%282026%29_%28square_crop%29.jpg/500px-Cinderella_Castle%2C_Magic_Kingdom_%282026%29_%28square_crop%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Cinderella_Castle,_Magic_Kingdom_(2026)_(square_crop).jpg",
+    "artist": "TheWanderingTraders",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/famous-places/disney-world.jpg"
+  },
+  {
+    "slug": "key-west",
+    "title": "Key West",
+    "file": "Southernmost_point_buoy,_NE_view.jpg",
+    "coordinates": [
+      {
+        "lat": 24.555,
+        "lon": -81.78194444,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Southernmost_point_buoy%2C_NE_view.jpg/500px-Southernmost_point_buoy%2C_NE_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Southernmost_point_buoy,_NE_view.jpg",
+    "artist": "Radomianin",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/famous-places/key-west.jpg"
+  },
+  {
+    "slug": "mount-rushmore",
+    "title": "Mount Rushmore",
+    "file": "Mount_Rushmore_detail_view_(100MP).jpg",
+    "coordinates": [
+      {
+        "lat": 43.87888889,
+        "lon": -103.45916667,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Mount_Rushmore_detail_view_%28100MP%29.jpg/500px-Mount_Rushmore_detail_view_%28100MP%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Mount_Rushmore_detail_view_(100MP).jpg",
+    "artist": "Thomas Wolf, www.foto-tw.de",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "path": "assets/famous-places/mount-rushmore.jpg"
+  },
+  {
+    "slug": "the-alamo",
+    "title": "Alamo Mission",
+    "file": "Alamo_pano.jpg",
+    "coordinates": [
+      {
+        "lat": 29.42583333,
+        "lon": -98.48611111,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Alamo_pano.jpg/500px-Alamo_pano.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Alamo_pano.jpg",
+    "artist": "Daniel Schwen",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "path": "assets/famous-places/the-alamo.jpg"
+  },
+  {
+    "slug": "one-world-trade-center",
+    "title": "One World Trade Center",
+    "file": "View of One World Trade Center, New York.jpg",
+    "coordinates": [
+      {
+        "lat": 40.71305556,
+        "lon": -74.01333333,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/View_of_One_World_Trade_Center%2C_New_York.jpg/500px-View_of_One_World_Trade_Center%2C_New_York.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:View_of_One_World_Trade_Center,_New_York.jpg",
+    "artist": "SonomaJSC",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "path": "assets/famous-places/one-world-trade-center.jpg"
+  },
+  {
+    "slug": "space-needle",
+    "title": "Space Needle",
+    "file": "Space_Needle_2011-07-04.jpg",
+    "coordinates": [
+      {
+        "lat": 47.6204,
+        "lon": -122.3491,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Space_Needle_2011-07-04.jpg/500px-Space_Needle_2011-07-04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Space_Needle_2011-07-04.jpg",
+    "artist": "Jordon Kalilich",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/famous-places/space-needle.jpg"
+  },
+  {
+    "slug": "gateway-arch",
+    "title": "Gateway Arch",
+    "file": "St_Louis_night_expblend_cropped.jpg",
+    "coordinates": [
+      {
+        "lat": 38.6246,
+        "lon": -90.185,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/St_Louis_night_expblend_cropped.jpg/500px-St_Louis_night_expblend_cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:St_Louis_night_expblend_cropped.jpg",
+    "artist": "St_Louis_night_expblend.jpg: Daniel Schwen\nderivative work: ←fetchcomms",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "path": "assets/famous-places/gateway-arch.jpg"
+  },
+  {
+    "slug": "uss-arizona-memorial",
+    "title": "USS Arizona Memorial",
+    "file": "USS_Arizona_Memorial_(aerial_view).jpg",
+    "coordinates": [
+      {
+        "lat": 21.365,
+        "lon": -157.95,
+        "primary": "",
+        "globe": "earth"
+      }
+    ],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/USS_Arizona_Memorial_%28aerial_view%29.jpg/500px-USS_Arizona_Memorial_%28aerial_view%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page_url": "https://commons.wikimedia.org/wiki/File:USS_Arizona_Memorial_(aerial_view).jpg",
+    "artist": "DoD photo by: PH3(AW/SW) JAYME PASTORIC, USN",
+    "license": "Public domain",
+    "license_url": "",
+    "path": "assets/famous-places/uss-arizona-memorial.jpg"
+  }
+]

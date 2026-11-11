@@ -13,6 +13,7 @@ https://rubiknube.github.io/UsaQuiz/
 - [x] Find major US mountain ranges on the map
 - [x] Find National Historic Landmarks on the map
 - [x] Find National Natural Landmarks on the map
+- [x] Find famous places on the map
 
 ## How to Play
 
@@ -30,6 +31,7 @@ https://rubiknube.github.io/UsaQuiz/
    - **Mountain Range Quiz**: before starting, click a range to see its location and a notable summit with approximate elevation. Press **Start**, then click the named range on the map. The quiz includes 12 ranges across the contiguous US, Alaska, and Hawaii; question counts are limited to available ranges. A wrong answer highlights both the clicked and correct ranges. **Auto next** advances after a correct answer; otherwise use **Next**. Range information is available again after the game ends.
    - **National Historic Landmarks Quiz**: before starting, click a marker to see a photo, location, historical note, and a link to the landmark's Wikipedia article. Press **Start**, then click the marker for the named landmark. The quiz includes 20 designated landmarks in 20 states, including Alaska and Hawaii. After an answer, the selected landmark's details appear and a wrong answer highlights the correct marker. **Auto next** advances after a correct answer; otherwise use **Next**. Study information is available again after the game ends.
    - **National Natural Landmarks Quiz**: explore 20 designated natural sites in 20 states, including Alaska and Hawaii. Click a marker to see a photo, location, natural history note, and article link. Press **Start** to find the named site; scoring, wrong-answer highlights, **Auto next**, and post-game study work like the historic landmark quiz.
+   - **Famous Places Quiz**: explore 20 recognizable places across the US. Click a marker to see a photo, location note, and article link. Press **Start** to find the named place; scoring, wrong-answer highlights, **Auto next**, and post-game study work like the landmark quizzes.
    - **Learn**: click any state to see its name.
 3. Use **Restart** to start a new game.
 
@@ -46,6 +48,10 @@ The locally bundled photos come from Wikimedia Commons. Authors, licenses, and s
 The 20 sites were checked against the [NPS list of current National Natural Landmarks](https://irma.nps.gov/DataStore/Reference/Profile/2318620). Marker positions are approximate site centers on the stylized map; Alaska and Hawaii use the map's separate insets. The notes describe natural features rather than access or visiting conditions.
 
 The bundled photos come from Wikimedia Commons. Authors, licenses, and source files are listed in [`assets/natural-landmarks/ATTRIBUTION.md`](assets/natural-landmarks/ATTRIBUTION.md); image metadata and article coordinates are in [`assets/natural-landmarks/metadata.json`](assets/natural-landmarks/metadata.json). Run `python3 scripts/fetch-natural-landmark-images.py --refresh` to refresh thumbnails and attribution.
+
+### Famous places
+
+The 20 places include 17 selected from [USA-Ecke's Famous Places list](https://www.usa-ecke.de/Famous/Famous.htm), plus the Space Needle, Gateway Arch, and USS Arizona Memorial. Large areas, cities, and resorts use a representative point named in the study note; the USS Arizona Memorial uses the Hawaii map inset. Markers are approximate on the stylized map. The bundled photos come from Wikimedia Commons; authors, licenses, and source files are in [`assets/famous-places/ATTRIBUTION.md`](assets/famous-places/ATTRIBUTION.md), with image metadata in [`assets/famous-places/metadata.json`](assets/famous-places/metadata.json). Run `python3 scripts/fetch-famous-place-images.py --refresh` to refresh thumbnails and attribution.
 
 ### US map
 

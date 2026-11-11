@@ -142,12 +142,39 @@ const NATURAL_LANDMARKS = [
   { code: "mima-mounds", name: "Mima Mounds", state: "Washington", fact: "Thousands of rounded earth mounds form a distinctive prairie landscape.", lat: 46.8986, lon: -123.0505 },
 ];
 
+// Familiar places selected from USA-Ecke's Famous Places list, plus three
+// additional icons. Coordinates indicate a representative point for places
+// that cover a larger area.
+const FAMOUS_PLACES = [
+  { code: "monument-valley", name: "Monument Valley", wikipediaTitle: "Monument Valley", state: "Arizona and Utah", fact: "The marker sits near the valley's visitor center, among its famous sandstone buttes.", lat: 36.998, lon: -110.099 },
+  { code: "delicate-arch", name: "Delicate Arch", state: "Utah", fact: "This freestanding sandstone arch is a symbol of Utah's Arches National Park.", lat: 38.7436, lon: -109.4993 },
+  { code: "grand-canyon", name: "Grand Canyon", wikipediaTitle: "Grand Canyon", state: "Arizona", fact: "The marker is at Mather Point on the South Rim, overlooking the canyon carved by the Colorado River.", lat: 36.0619, lon: -112.1093 },
+  { code: "yellowstone", name: "Yellowstone", wikipediaTitle: "Yellowstone National Park", state: "Wyoming, Montana, and Idaho", fact: "The marker is at Old Faithful, one of Yellowstone's best-known geysers.", lat: 44.4605, lon: -110.8281 },
+  { code: "everglades", name: "Everglades", wikipediaTitle: "Everglades National Park", state: "Florida", fact: "The marker is at the park's Gulf Coast entrance, one gateway to the vast wetland.", lat: 25.847, lon: -81.386 },
+  { code: "yosemite", name: "Yosemite", wikipediaTitle: "Yosemite National Park", state: "California", fact: "The marker is in Yosemite Valley, known for granite cliffs and waterfalls.", lat: 37.7456, lon: -119.5936 },
+  { code: "golden-gate-bridge", name: "Golden Gate Bridge", state: "California", fact: "The suspension bridge spans the Golden Gate strait at San Francisco.", lat: 37.8199, lon: -122.4783 },
+  { code: "hollywood-sign", name: "Hollywood Sign", wikipediaTitle: "Hollywood Sign", state: "California", fact: "The hillside sign has become a familiar symbol of Los Angeles and its film industry.", lat: 34.1341, lon: -118.3215 },
+  { code: "las-vegas", name: "Las Vegas", state: "Nevada", fact: "The marker is on the Las Vegas Strip, known for its resort hotels and bright lights.", lat: 36.1147, lon: -115.1728 },
+  { code: "white-house", name: "White House", wikipediaTitle: "White House", state: "Washington, D.C.", fact: "The White House is the official residence and workplace of the U.S. president.", lat: 38.8977, lon: -77.0365 },
+  { code: "graceland", name: "Graceland", state: "Tennessee", fact: "Elvis Presley's former home is now a museum in Memphis.", lat: 35.0461, lon: -90.0236 },
+  { code: "ocean-drive", name: "Ocean Drive", wikipediaTitle: "Ocean Drive (South Beach)", state: "Florida", fact: "The marker is on Miami Beach's Ocean Drive, known for its Art Deco buildings.", lat: 25.7825, lon: -80.1301 },
+  { code: "disney-world", name: "Walt Disney World", wikipediaTitle: "Walt Disney World", state: "Florida", fact: "The marker is at Magic Kingdom, one of the resort's theme parks near Orlando.", lat: 28.4177, lon: -81.5812 },
+  { code: "key-west", name: "Key West", state: "Florida", fact: "The marker is near the Southernmost Point buoy at the end of the Florida Keys.", lat: 24.5465, lon: -81.7975 },
+  { code: "mount-rushmore", name: "Mount Rushmore", wikipediaTitle: "Mount Rushmore", state: "South Dakota", fact: "Four U.S. presidents are carved into the granite face of Mount Rushmore.", lat: 43.8791, lon: -103.4591 },
+  { code: "the-alamo", name: "The Alamo", wikipediaTitle: "Alamo Mission", state: "Texas", fact: "This former mission in San Antonio is remembered for the 1836 Battle of the Alamo.", lat: 29.4259, lon: -98.4861 },
+  { code: "one-world-trade-center", name: "One World Trade Center", state: "New York", fact: "The skyscraper stands at the World Trade Center site in Lower Manhattan.", lat: 40.713, lon: -74.0132 },
+  { code: "space-needle", name: "Space Needle", state: "Washington", fact: "This observation tower was built for the 1962 World's Fair in Seattle.", lat: 47.6205, lon: -122.3493 },
+  { code: "gateway-arch", name: "Gateway Arch", state: "Missouri", fact: "The stainless-steel arch rises beside the Mississippi River in St. Louis.", lat: 38.6247, lon: -90.1848 },
+  { code: "uss-arizona-memorial", name: "USS Arizona Memorial", state: "Hawaii", fact: "The memorial at Pearl Harbor spans the sunken USS Arizona and honors those killed in the 1941 attack.", x: 289, y: 662 },
+];
+
 const els = {
   map: document.getElementById("usMap"),
   riversLayer: document.getElementById("riversLayer"),
   mountainsLayer: document.getElementById("mountainsLayer"),
   landmarksLayer: document.getElementById("landmarksLayer"),
   naturalLandmarksLayer: document.getElementById("naturalLandmarksLayer"),
+  famousPlacesLayer: document.getElementById("famousPlacesLayer"),
   landmarkMapHint: document.getElementById("landmarkMapHint"),
   landmarkInfo: document.getElementById("landmarkInfo"),
   landmarkInfoClose: document.getElementById("landmarkInfoClose"),
@@ -427,17 +454,18 @@ function updateQuizBanner(currentState) {
   const isMountain = currentState === MountainState;
   const isLandmark = currentState === LandmarkState;
   const isNaturalLandmark = currentState === NaturalLandmarkState;
+  const isFamousPlace = currentState === FamousPlaceState;
   const isCapital = currentState === CapitalState;
 
   const show =
-    (isQuiz || isRiver || isMountain || isLandmark || isNaturalLandmark || isCapital) && round > 0 && totalRounds > 0 && target;
+    (isQuiz || isRiver || isMountain || isLandmark || isNaturalLandmark || isFamousPlace || isCapital) && round > 0 && totalRounds > 0 && target;
   els.quizBanner.classList.toggle("hidden", !show);
 
   if (!show) return;
 
   const safeTotal = Number.isFinite(totalRounds) ? totalRounds : 0;
   let line = "";
-  if (isQuiz || isRiver || isMountain || isLandmark || isNaturalLandmark) {
+  if (isQuiz || isRiver || isMountain || isLandmark || isNaturalLandmark || isFamousPlace) {
     line = `Round ${round}/${safeTotal}: Find ${target.name}`;
   } else if (isCapital) {
     // Show all capital options in the banner as clickable buttons
@@ -606,7 +634,7 @@ function shuffle(array) {
 
 function updateRoundCountOptions(mode) {
   if (!els.roundCount) return;
-  const availableCount = mode === "river" ? RIVERS.length : mode === "mountain" ? MOUNTAINS.length : mode === "landmark" ? LANDMARKS.length : mode === "natural-landmark" ? NATURAL_LANDMARKS.length : Infinity;
+  const availableCount = mode === "river" ? RIVERS.length : mode === "mountain" ? MOUNTAINS.length : mode === "landmark" ? LANDMARKS.length : mode === "natural-landmark" ? NATURAL_LANDMARKS.length : mode === "famous-place" ? FAMOUS_PLACES.length : Infinity;
   const options = Array.from(els.roundCount.options);
   const selectedCount = Number.parseInt(els.roundCount.value, 10);
   for (const option of options) {
@@ -638,7 +666,8 @@ class StateMachine {
     els.mountainsLayer?.classList.toggle("hidden", name !== "mountain");
     els.landmarksLayer?.classList.toggle("hidden", name !== "landmark");
     els.naturalLandmarksLayer?.classList.toggle("hidden", name !== "natural-landmark");
-    const landmarkMode = name === "landmark" || name === "natural-landmark";
+    els.famousPlacesLayer?.classList.toggle("hidden", name !== "famous-place");
+    const landmarkMode = name === "landmark" || name === "natural-landmark" || name === "famous-place";
     els.map?.classList.toggle("landmark-mode", landmarkMode);
     els.map?.parentElement?.classList.toggle("landmark-map", landmarkMode);
     els.landmarkMapHint?.classList.toggle("hidden", !landmarkMode);
@@ -1231,6 +1260,7 @@ function createLandmarkState(landmarks, layer, imageDirectory, label) {
 
 const LandmarkState = createLandmarkState(LANDMARKS, els.landmarksLayer, "landmarks", "landmark");
 const NaturalLandmarkState = createLandmarkState(NATURAL_LANDMARKS, els.naturalLandmarksLayer, "natural-landmarks", "natural landmark");
+const FamousPlaceState = createLandmarkState(FAMOUS_PLACES, els.famousPlacesLayer, "famous-places", "famous place");
 
 const CapitalState = {
   enter() {
@@ -1622,6 +1652,7 @@ const FlagState = {
 
 renderLandmarkMarkers(LANDMARKS, els.landmarksLayer);
 renderLandmarkMarkers(NATURAL_LANDMARKS, els.naturalLandmarksLayer);
+renderLandmarkMarkers(FAMOUS_PLACES, els.famousPlacesLayer);
 
 // --- State Machine Instance ---
 const stateMachine = new StateMachine(
@@ -1631,6 +1662,7 @@ const stateMachine = new StateMachine(
     mountain: MountainState,
     landmark: LandmarkState,
     "natural-landmark": NaturalLandmarkState,
+    "famous-place": FamousPlaceState,
     capital: CapitalState,
     learn: LearnState,
     flag: FlagState,
@@ -1683,7 +1715,7 @@ els.map.addEventListener("click", (e) => {
     }
     return;
   }
-  if (stateMachine.current === LandmarkState || stateMachine.current === NaturalLandmarkState) {
+  if (stateMachine.current === LandmarkState || stateMachine.current === NaturalLandmarkState || stateMachine.current === FamousPlaceState) {
     const landmarkEl = el.closest(".landmark");
     if (landmarkEl) stateMachine.handle("handleLandmarkClick", landmarkEl);
     return;
@@ -1714,7 +1746,7 @@ els.mountainsLayer?.addEventListener("keydown", (e) => {
   stateMachine.handle("handleMountainClick", mountainEl);
 });
 
-for (const [layer, mode] of [[els.landmarksLayer, LandmarkState], [els.naturalLandmarksLayer, NaturalLandmarkState]]) {
+for (const [layer, mode] of [[els.landmarksLayer, LandmarkState], [els.naturalLandmarksLayer, NaturalLandmarkState], [els.famousPlacesLayer, FamousPlaceState]]) {
   layer?.addEventListener("keydown", (e) => {
     if (stateMachine.current !== mode) return;
     if (e.key !== "Enter" && e.key !== " ") return;
